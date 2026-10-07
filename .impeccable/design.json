@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T01:42:40.742900+00:00",
+  "title": "Design System: RIAH SL",
+  "extensions": {
+    "colorMeta": {
+      "kiosk": {
+        "role": "primary",
+        "displayName": "Kiosk Blue",
+        "tonalRamp": [
+          "#172554",
+          "#1e3a8a",
+          "#1e40af",
+          "#1d4ed8",
+          "#2563eb",
+          "#60a5fa",
+          "#bfdbfe",
+          "#eff6ff"
+        ]
+      },
+      "kiosk-deep": {
+        "role": "primary",
+        "displayName": "Kiosk Deep",
+        "tonalRamp": [
+          "#172554",
+          "#1e3a8a",
+          "#1e40af",
+          "#1d4ed8",
+          "#2563eb",
+          "#60a5fa",
+          "#bfdbfe",
+          "#eff6ff"
+        ]
+      },
+      "kiosk-ink": {
+        "role": "primary",
+        "displayName": "Kiosk Ink",
+        "tonalRamp": [
+          "#172554",
+          "#1e3a8a",
+          "#1e40af",
+          "#1d4ed8",
+          "#2563eb",
+          "#60a5fa",
+          "#bfdbfe",
+          "#eff6ff"
+        ]
+      },
+      "sign": {
+        "role": "secondary",
+        "displayName": "Sign Yellow",
+        "tonalRamp": [
+          "#422006",
+          "#854d0e",
+          "#a16207",
+          "#ca8a04",
+          "#facc15",
+          "#fde047",
+          "#fef08a",
+          "#fefce8"
+        ]
+      },
+      "sign-bright": {
+        "role": "secondary",
+        "displayName": "Sign Bright",
+        "tonalRamp": [
+          "#422006",
+          "#854d0e",
+          "#a16207",
+          "#ca8a04",
+          "#facc15",
+          "#fde047",
+          "#fef08a",
+          "#fefce8"
+        ]
+      },
+      "sign-deep": {
+        "role": "secondary",
+        "displayName": "Sign Deep",
+        "tonalRamp": [
+          "#422006",
+          "#854d0e",
+          "#a16207",
+          "#ca8a04",
+          "#facc15",
+          "#fde047",
+          "#fef08a",
+          "#fefce8"
+        ]
+      },
+      "money": {
+        "role": "tertiary",
+        "displayName": "Money Emerald",
+        "tonalRamp": [
+          "#022c22",
+          "#065f46",
+          "#047857",
+          "#059669",
+          "#10b981",
+          "#6ee7b7",
+          "#a7f3d0",
+          "#ecfdf5"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Slate Ink",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#334155",
+          "#64748b",
+          "#cbd5e1",
+          "#e2e8f0",
+          "#f1f5f9",
+          "#f8fafc"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#334155",
+          "#64748b",
+          "#cbd5e1",
+          "#e2e8f0",
+          "#f1f5f9",
+          "#f8fafc"
+        ]
+      },
+      "board-muted": {
+        "role": "neutral",
+        "displayName": "Board Muted",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#334155",
+          "#64748b",
+          "#cbd5e1",
+          "#e2e8f0",
+          "#f1f5f9",
+          "#f8fafc"
+        ]
+      },
+      "wall": {
+        "role": "neutral",
+        "displayName": "Whitewash Wall",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#334155",
+          "#64748b",
+          "#cbd5e1",
+          "#e2e8f0",
+          "#f1f5f9",
+          "#f8fafc"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#334155",
+          "#64748b",
+          "#cbd5e1",
+          "#e2e8f0",
+          "#f1f5f9",
+          "#f8fafc"
+        ]
+      },
+      "mark": {
+        "role": "brand",
+        "displayName": "Brand Indigo (logo only)",
+        "tonalRamp": [
+          "#1a2150",
+          "#232c6b",
+          "#2e3a86",
+          "#3b4a9c",
+          "#5b69b4",
+          "#8691cb",
+          "#b6bde2",
+          "#e6e9f6"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Sign Display",
+        "purpose": "Home signboard lettering only, one word per line, drop-shaded."
+      },
+      "headline": {
+        "displayName": "Sign Headline",
+        "purpose": "Inner-page sign bands and home section headings."
+      },
+      "title": {
+        "displayName": "Sign Title",
+        "purpose": "Service and sector band headings, closing call, contact sign."
+      },
+      "title-sm": {
+        "displayName": "Sign Title Small",
+        "purpose": "Board titles, step names, mobile menu items, prose h2; the floor for showcard."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "The sentence or two after a sign."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running copy."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Chips, technical subtitles, menu-board details."
+      }
+    },
+    "shadows": [
+      {
+        "name": "drop-shade",
+        "value": "text-shadow: 0.055em 0.06em 0 var(--shade, #0f172a)",
+        "purpose": "Sign painter's shade under showcard lettering only."
+      },
+      {
+        "name": "fascia-lift",
+        "value": "0 6px 18px -8px rgba(15,23,42,0.45)",
+        "purpose": "Sticky header over content."
+      },
+      {
+        "name": "menu-board-lift",
+        "value": "0 24px 40px -18px rgba(2,6,23,0.7)",
+        "purpose": "Slate menu board hung on the hero signboard."
+      },
+      {
+        "name": "pictogram-lift",
+        "value": "drop-shadow(0 8px 10px rgba(15,23,42,0.25))",
+        "purpose": "Large pictograms standing on a band."
+      },
+      {
+        "name": "chip-press",
+        "value": "inset 0 -2px 0 rgba(15,23,42,0.15)",
+        "purpose": "Painted bottom edge on white chips."
+      },
+      {
+        "name": "board-pinstripe",
+        "value": "outline: 2px solid var(--pin); outline-offset: -10px",
+        "purpose": "Inner painted border on every board; not a shadow, recorded here because it carries board depth."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 3px solid #facc15; outline-offset: 3px; box-shadow: 0 0 0 6px #0f172a",
+        "purpose": "Global keyboard focus."
+      }
+    ],
+    "motion": [
+      {
+        "name": "brush-in",
+        "value": "clip-path inset reveal left to right, 0.9s cubic-bezier(0.16, 1, 0.3, 1), delay i*0.16s + 0.1s",
+        "purpose": "Sign lettering brushed on once at load; off under reduced motion."
+      },
+      {
+        "name": "board-lift",
+        "value": "transform translateY(-4px), 200ms",
+        "purpose": "Hover on linked boards."
+      },
+      {
+        "name": "paint-swap",
+        "value": "color and background-color, 150ms",
+        "purpose": "Button and link hover."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Sign Button",
+      "kind": "button",
+      "refersTo": "button-sign",
+      "description": "The single primary action: sign yellow with the painter's ink keyline.",
+      "html": "<a class=\"ds-btn-sign\" href=\"#\">Request a consultation</a>",
+      "css": ".ds-btn-sign { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 6px; font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif; font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: background-color 150ms, color 150ms; background: var(--color-sign, #facc15); color: var(--color-ink, #0f172a); border: 2px solid var(--color-ink, #0f172a); } .ds-btn-sign:hover { background: #fde047; } .ds-btn-sign:active { background: var(--color-sign-deep, #ca8a04); } .ds-btn-sign:focus-visible { outline: 3px solid var(--color-sign); outline-offset: 3px; box-shadow: 0 0 0 6px var(--color-ink); }"
+    },
+    {
+      "name": "Ink Button",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Secondary action on light paint.",
+      "html": "<a class=\"ds-btn-ink\" href=\"#\">See licensing</a>",
+      "css": ".ds-btn-ink { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 6px; font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif; font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: background-color 150ms, color 150ms; background: var(--color-ink, #0f172a); color: #fff; border: 2px solid var(--color-ink, #0f172a); } .ds-btn-ink:hover { background: var(--color-ink-soft, #334155); } .ds-btn-ink:focus-visible { outline: 3px solid var(--color-sign); outline-offset: 3px; box-shadow: 0 0 0 6px var(--color-ink); }"
+    },
+    {
+      "name": "Outline Light Button",
+      "kind": "button",
+      "refersTo": "button-outline-light-hover",
+      "description": "Secondary action on kiosk blue boards.",
+      "html": "<div style=\"background:#2563eb;padding:24px\"><a class=\"ds-btn-outline-light\" href=\"#\">See all services</a></div>",
+      "css": ".ds-btn-outline-light { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 6px; font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif; font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: background-color 150ms, color 150ms; background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.8); } .ds-btn-outline-light:hover { background: #fff; color: var(--color-kiosk-ink, #1e3a8a); } .ds-btn-outline-light:focus-visible { outline: 3px solid var(--color-sign); outline-offset: 3px; box-shadow: 0 0 0 6px var(--color-ink); }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Whitewash field with a soft ink border that turns kiosk blue on focus.",
+      "html": "<label class=\"ds-field\">Full name<input class=\"ds-input\" placeholder=\"Ministry, business or NGO\"></label>",
+      "css": ".ds-field { display: block; font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif; font-weight: 700; color: var(--color-ink, #0f172a); } .ds-input { display: block; width: 100%; margin-top: 8px; padding: 12px 16px; border: 2px solid rgba(15,23,42,0.25); border-radius: 6px; background: var(--color-wall, #f8fafc); font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif; font-size: 1rem; font-weight: 400; color: var(--color-ink, #0f172a); } .ds-input::placeholder { color: rgba(51,65,85,0.6); } .ds-input:focus { border-color: var(--color-kiosk, #2563eb); background: #fff; outline: 3px solid rgba(37,99,235,0.3); outline-offset: 0; }"
+    },
+    {
+      "name": "Fascia Header",
+      "kind": "nav",
+      "refersTo": "nav-fascia",
+      "description": "Sticky kiosk-blue fascia with white logo, links turning yellow, and the yellow action.",
+      "html": "<header class=\"ds-fascia\"><span class=\"ds-fascia-logo\">RIAH SL</span><nav><a href=\"#\" class=\"ds-fascia-link\">Services</a><a href=\"#\" class=\"ds-fascia-link\" aria-current=\"page\">Industries</a><a href=\"#\" class=\"ds-fascia-link\">Licensing</a></nav><a class=\"ds-fascia-cta\" href=\"#\">Request a consultation</a></header>",
+      "css": ".ds-fascia { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 72px; padding: 0 32px; background: var(--color-kiosk, #2563eb); color: #fff; box-shadow: 0 6px 18px -8px rgba(15,23,42,0.45); font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif; } .ds-fascia-logo { font-family: var(--font-sign), var(--font-body), sans-serif; font-weight: 400; letter-spacing: 0.005em; line-height: 0.98; font-size: 1.5rem; } .ds-fascia-link { position: relative; display: inline-block; padding: 8px 12px; color: #fff; font-weight: 600; text-decoration: none; transition: color 150ms; } .ds-fascia-link:hover, .ds-fascia-link[aria-current=page] { color: var(--color-sign, #facc15); } .ds-fascia-link[aria-current=page]::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: -2px; height: 3px; border-radius: 9999px; background: var(--color-sign, #facc15); } .ds-fascia-link:focus-visible { outline: 3px solid var(--color-sign); outline-offset: 3px; box-shadow: 0 0 0 6px var(--color-ink); } .ds-fascia-cta { display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border: 2px solid var(--color-ink, #0f172a); border-radius: 6px; background: var(--color-sign, #facc15); color: var(--color-ink, #0f172a); font-weight: 700; font-size: 0.95rem; text-decoration: none; } .ds-fascia-cta:hover { background: #fde047; }"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "White pill naming a service a sector uses.",
+      "html": "<div style=\"background:#10b981;padding:16px;display:flex;gap:8px\"><span class=\"ds-chip\">DHIS2</span><span class=\"ds-chip\">RapidPro SMS</span></div>",
+      "css": ".ds-chip { display: inline-block; padding: 4px 12px; border-radius: 9999px; background: #fff; color: var(--color-ink, #0f172a); font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 700; box-shadow: inset 0 -2px 0 rgba(15,23,42,0.15); }"
+    },
+    {
+      "name": "Painted Board",
+      "kind": "card",
+      "refersTo": "board-money",
+      "description": "Flat paint board with inner pinstripe and brush grain; linked boards lift 4px on hover.",
+      "html": "<a class=\"ds-board\" href=\"#\"><h3 class=\"ds-board-title\">Health programmes</h3><p class=\"ds-board-body\">Field data that reaches DHIS2 on time, and SMS alerts that reach health workers.</p></a>",
+      "css": ".ds-board { position: relative; display: block; padding: 40px; border-radius: 6px; background: var(--color-money, #10b981); color: var(--color-ink, #0f172a); outline: 2px solid color-mix(in srgb, #0f172a 35%, transparent); outline-offset: -10px; text-decoration: none; transition: transform 200ms; font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif; } .ds-board:hover { transform: translateY(-4px); } .ds-board:focus-visible { outline: 3px solid var(--color-sign, #facc15); outline-offset: 3px; box-shadow: 0 0 0 6px var(--color-ink, #0f172a); } .ds-board-title { margin: 0; font-family: var(--font-sign), var(--font-body), sans-serif; font-weight: 400; letter-spacing: 0.005em; line-height: 0.98; font-size: 1.875rem; } .ds-board-body { margin: 12px 0 0; font-size: 1.125rem; line-height: 1.375; font-weight: 500; }"
+    },
+    {
+      "name": "Signboard",
+      "kind": "custom",
+      "refersTo": "board-kiosk",
+      "description": "Opening blue signboard framed by kiosk deep, yellow showcard lettering with drop shade, brushed in once.",
+      "html": "<section class=\"ds-sign-frame\"><div class=\"ds-signboard\"><h1 class=\"ds-sign\"><span>Networks.</span><span style=\"--i:1\">Servers.</span></h1><p class=\"ds-sign-lead\">RIAH SL builds and runs the technology institutions in Sierra Leone depend on.</p></div></section>",
+      "css": ".ds-sign-frame { padding: 16px; background: var(--color-kiosk-deep, #1d4ed8); } .ds-signboard { padding: 64px 48px; border-radius: 6px; background: var(--color-kiosk, #2563eb); color: #fff; outline: 2px solid color-mix(in srgb, #fff 55%, transparent); outline-offset: -10px; font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif; } .ds-sign { margin: 0; font-family: var(--font-sign), var(--font-body), sans-serif; font-weight: 400; letter-spacing: 0.005em; line-height: 0.98; font-size: clamp(3rem, 7.4vw, 6rem); color: var(--color-sign, #facc15); text-shadow: 0.055em 0.06em 0 var(--color-ink, #0f172a); } .ds-sign span { display: block; animation: ds-brush 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: calc(var(--i, 0) * 0.16s + 0.1s); } @keyframes ds-brush { from { clip-path: inset(-10% 100% -10% -2%); } to { clip-path: inset(-10% -4% -10% -2%); } } @media (prefers-reduced-motion: reduce) { .ds-sign span { animation: none; } } .ds-sign-lead { margin: 32px 0 0; max-width: 36rem; font-size: 1.25rem; line-height: 1.625; font-weight: 500; }"
+    },
+    {
+      "name": "Menu Board",
+      "kind": "custom",
+      "refersTo": "board-ink",
+      "description": "Slate board listing services with pictograms; names turn yellow on hover.",
+      "html": "<nav class=\"ds-menu\"><h2 class=\"ds-menu-title\">What we do</h2><a class=\"ds-menu-row\" href=\"#\"><svg viewBox=\"0 0 64 64\" width=\"44\" height=\"44\" aria-hidden=\"true\"><rect x=\"8\" y=\"8\" width=\"48\" height=\"14\" rx=\"2.5\" fill=\"#f8fafc\" stroke=\"#0f172a\" stroke-width=\"3\"/><circle cx=\"47\" cy=\"15\" r=\"3\" fill=\"#10b981\" stroke=\"#0f172a\" stroke-width=\"2\"/><rect x=\"8\" y=\"25\" width=\"48\" height=\"14\" rx=\"2.5\" fill=\"#f8fafc\" stroke=\"#0f172a\" stroke-width=\"3\"/><circle cx=\"47\" cy=\"32\" r=\"3\" fill=\"#10b981\" stroke=\"#0f172a\" stroke-width=\"2\"/></svg><span><span class=\"ds-menu-name\">Servers &amp; databases</span><span class=\"ds-menu-detail\">Linux, PostgreSQL</span></span></a></nav>",
+      "css": ".ds-menu { padding: 28px 28px 16px; border-radius: 6px; background: var(--color-ink, #0f172a); outline: 2px solid color-mix(in srgb, #facc15 55%, transparent); outline-offset: -10px; box-shadow: 0 24px 40px -18px rgba(2,6,23,0.7); font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif; } .ds-menu-title { margin: 0; padding: 0 8px; font-family: var(--font-sign), var(--font-body), sans-serif; font-weight: 400; letter-spacing: 0.005em; line-height: 0.98; font-size: 1.875rem; color: #fff; } .ds-menu-row { display: flex; align-items: center; gap: 16px; margin-top: 16px; padding: 10px 8px; border-radius: 6px; text-decoration: none; transition: background-color 150ms; } .ds-menu-row:hover { background: rgba(255,255,255,0.08); } .ds-menu-row:hover .ds-menu-name { color: var(--color-sign, #facc15); } .ds-menu-row:focus-visible { outline: 3px solid var(--color-sign); outline-offset: 3px; box-shadow: 0 0 0 6px var(--color-ink); } .ds-menu-name { display: block; color: #fff; font-weight: 700; } .ds-menu-detail { display: block; color: #cbd5e1; font-size: 0.875rem; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Painted Agent Kiosk",
+    "overview": "riah.dev is built like the hand-painted mobile-money and telecom kiosks of Freetown: a shopfront you understand from across the street. Whole bands of the page are flat paint fields (kiosk blue, sign yellow, slate, emerald, whitewash), and the content sits on painted boards inside them. The big words are showcard lettering with a painter's drop shade; everything a visitor has to read is a highly legible sans at a generous size.\n\nDensity is low and the voice is loud but plain. Each band says one thing in sign lettering, explains it in a sentence or two of body copy, and offers one obvious next step, almost always the yellow button. Hierarchy comes from paint and scale, not from hairlines, cards-in-cards or decoration. Authored flat pictograms with slate outlines do the work photographs would do elsewhere; the system carries no photography and no invented proof.\n\nThe world rejects the pale hairline list page and the SaaS dark hero with an icon-card grid. Depth is painted, not rendered: a pinstripe inside each board, a faint brush grain, and a drop shade under lettering.",
+    "keyCharacteristics": [
+      "Paint fields own full-width bands; boards sit inside them on a 12-16px frame.",
+      "Showcard display lettering (Bowlby One) with a hard drop shade, mixed case for legibility.",
+      "Atkinson Hyperlegible Next for every word that must be read.",
+      "One primary action colour: sign yellow with an ink keyline.",
+      "Flat, slate-outlined pictograms, one per service, sector or product.",
+      "Lettering brushes in once, left to right, on load."
+    ],
+    "rules": [
+      {
+        "name": "The Paint Tin Rule",
+        "body": "A band or board is one flat paint from the five tins (kiosk, sign, ink, money, wall/white). No gradients, no tints between tins, no translucent glass.",
+        "section": "colors"
+      },
+      {
+        "name": "The Readable Pairs Rule",
+        "body": "Ink text on yellow, emerald, whitewash and white; white or yellow text on blue and slate. Never white on yellow or emerald, never yellow on whitewash.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Yellow Button Rule",
+        "body": "The primary action is the yellow button with an ink keyline. Secondary actions are outline or ink buttons, never a second yellow.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sign Scale Rule",
+        "body": "Showcard appears only at sign scale (1.5rem and up) and only on headings. Anything smaller, or anything read as a sentence, is Atkinson Hyperlegible Next.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mixed Case Rule",
+        "body": "Sign lettering is set in sentence or title case for readers who are not specialists. The only uppercase lettering is the five project step names (Audit, Design, Test, Deploy, Support).",
+        "section": "typography"
+      },
+      {
+        "name": "The Plain Name First Rule",
+        "body": "A service is named in plain words first (\"Software checked before it goes live\"), with its technical name as a bold label beneath it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Shade Belongs To Lettering Rule",
+        "body": "The hard offset shade is a sign-painting device for showcard lettering. Boards and buttons get a pinstripe or an ink keyline, never a hard offset box shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Painted Depth Rule",
+        "body": "Boards are flat at rest. Interactive boards lift 4px on hover; they do not gain a shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** give every band one paint from the five tins and frame signboards with a 12-16px edge of deeper paint.",
+      "**Do** set headings in showcard with the drop shade, choosing the shade colour against the paint (ink on blue, kiosk on whitewash, sign deep on yellow, wall on emerald, black on slate).",
+      "**Do** use Atkinson Hyperlegible Next for anything read as a sentence, and body bold for small titles.",
+      "**Do** name services in plain words first, technical name second as a bold label.",
+      "**Do** pair every service, sector or product with its authored flat pictogram: 3px slate outline, tin fills.",
+      "**Do** keep the yellow button with ink keyline as the single primary action in any view.",
+      "**Do** keep the global focus ring (3px sign-yellow outline, 3px offset, 6px ink halo) on every interactive element."
+    ],
+    "donts": [
+      "**Don't** set showcard below 1.5rem or use it for running copy.",
+      "**Don't** set sign lettering in all caps beyond the project step names.",
+      "**Don't** put white text on yellow or emerald, or yellow text on whitewash.",
+      "**Don't** use gradients, glass, or tints between paint tins on bands or boards.",
+      "**Don't** put hard offset box shadows on boards or buttons; the hard shade belongs to lettering.",
+      "**Don't** use stock photography or invented client logos, metrics or testimonials; pictograms carry the imagery.",
+      "**Don't** reuse the pale hairline list or the dark SaaS hero with an icon-card grid."
+    ]
+  }
+}

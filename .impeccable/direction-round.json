@@ -1,0 +1,128 @@
+{
+  "title": "Choose the visual world for riah.dev",
+  "question": "The roll assigned the Operations Wall. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "The Operations Wall",
+      "kicker": "THE ROLL",
+      "lineage": "Network operations centre (NOC) display walls",
+      "thesis": "The site is RIAH's operations wall: each service is a live screen showing the system it keeps running.",
+      "palette": ["#0F172A", "#F8FAFC", "#10B981", "#2563EB", "#F59E0B", "#3B4A9C"],
+      "materials": ["deep slate wall that owns whole regions", "bright framed display panels with title bars", "status lights: green OK, amber failover", "big condensed signage type"],
+      "viewport": "Slate wall. Left: huge headline saying what RIAH does in plain words, one blue action. Right: six live panels (uplinks, firewall, servers, SMS, payments, DHIS2) with ticking illustrative data.",
+      "risk": "Can read as a software dashboard product if copy is vague; demo numbers must be labelled illustrative.",
+      "raised": [
+        {"from": "Azulejo station hall", "raise": "Total palette commitment: slate owns whole bands of the page, panels snap to whole grid units."},
+        {"from": "One-bit desktop", "raise": "Every panel wears a title bar naming the service and its status, so no block is ever unlabelled."},
+        {"from": "Darkroom safelight bay", "raise": "Delivery runs as fixed stations (audit, design, test, deploy, support) with a marker showing where a project is."}
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "The Transit Map",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Metro and bus network maps",
+      "thesis": "Each service is a coloured line; each sector is a route you can follow across the city of RIAH's work.",
+      "palette": ["#F8FAFC", "#0F172A", "#2563EB", "#10B981", "#E11D48", "#F59E0B"],
+      "materials": ["thick coloured route lines", "interchange rings", "station signage type"],
+      "viewport": "A big full-width map: pick 'health programme' or 'bank' and its route lights up through the services it uses.",
+      "risk": "Familiar trope, and the closest to the diagram you found confusing."
+    },
+    {
+      "id": "challenger-hardware",
+      "label": "The Control Desk",
+      "verdict": "competitive",
+      "lineage": "Creator-hardware desk instrument",
+      "thesis": "Services as physical keys on a control surface; one orange key is the consultation.",
+      "palette": ["#3A3D42", "#D9D4C7", "#2A2A2A", "#FF5A1F", "#FFB547"],
+      "materials": ["putty keycaps", "gunmetal chassis", "amber status screen"],
+      "viewport": "A keyboard-like grid of service keys; pressing one shows its detail on a small amber screen.",
+      "case": "Very scannable grid, but reads as a gadget brand more than an infrastructure firm.",
+      "risk": "Ministries and NGOs may not see themselves in a hardware toy.",
+      "hero": "https://impeccable.style/worlds/cards/design-canon-creator-hardware-bench-hero.webp"
+    },
+    {
+      "id": "challenger-azulejo",
+      "label": "Azulejo Station Hall",
+      "verdict": "declined",
+      "lineage": "Portuguese tiled station halls",
+      "thesis": "Services as cobalt-painted tile panels in sequence.",
+      "palette": ["#1F3E9E", "#F7F5EF", "#D9A62B"],
+      "materials": ["tin-glazed tile", "grout grid"],
+      "viewport": "A tiled panel per service.",
+      "case": "Not the audience's world; adds no clarity.",
+      "kept": "Total palette commitment and whole-unit grid.",
+      "risk": "Foreign to West African buyers.",
+      "hero": "https://impeccable.style/worlds/cards/architecture-places-azulejo-station-hall-hero.webp"
+    },
+    {
+      "id": "challenger-onebit",
+      "label": "One-bit Desktop",
+      "verdict": "declined",
+      "lineage": "Early Macintosh desktop",
+      "thesis": "Services as windows on a dithered desktop.",
+      "palette": ["#000000", "#FFFFFF"],
+      "materials": ["dither", "window chrome"],
+      "viewport": "Overlapping service windows.",
+      "case": "Retro novelty undermines trust for enterprise buyers.",
+      "kept": "Title bar on every panel.",
+      "risk": "Reads as a joke.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-one-bit-desktop-hero.webp"
+    },
+    {
+      "id": "challenger-darkroom",
+      "label": "Darkroom Safelight Bay",
+      "verdict": "declined",
+      "lineage": "Photo printing darkroom",
+      "thesis": "Work emerging station by station under amber light.",
+      "palette": ["#C9721C", "#2B2B2B", "#E9E4DA"],
+      "materials": ["amber safelight", "silver print"],
+      "viewport": "Stations from expose to dry.",
+      "case": "No link to networks or payments.",
+      "kept": "Fixed stations with progress markers for the delivery process.",
+      "risk": "Moody and unclear.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-darkroom-safelight-bay-hero.webp"
+    },
+    {
+      "id": "challenger-dense",
+      "label": "Japanese High-Density Web",
+      "verdict": "declined",
+      "lineage": "Japanese portal sites",
+      "thesis": "Every service packed into a ruled module mosaic.",
+      "palette": ["#FFFFFF", "#111111", "#D7261E"],
+      "materials": ["hairline modules", "red tabs"],
+      "viewport": "Dense grid of small modules.",
+      "case": "Density makes it harder for non-engineers, the opposite of your feedback.",
+      "kept": "Every module carries its own header tab.",
+      "risk": "Overwhelming.",
+      "hero": "https://impeccable.style/worlds/cards/japanese-high-density-web-hero.webp"
+    },
+    {
+      "id": "challenger-brine",
+      "label": "Pickling Brine Calendar",
+      "verdict": "declined",
+      "lineage": "Fermentation jar shelves",
+      "thesis": "Services as jars maturing on a shelf.",
+      "palette": ["#E8EEE6", "#E4664E", "#8E1F3E", "#6F9A3B"],
+      "materials": ["jar glass", "kraft labels"],
+      "viewport": "Shelves of labelled jars.",
+      "case": "Unrelated to the audience and the offer.",
+      "kept": "Each item banded with its state and time.",
+      "risk": "Confusing.",
+      "hero": "https://impeccable.style/worlds/cards/food-fermentation-culinary-theater-pickling-brine-calendar-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": false},
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A classic corporate IT-services site, executed well.",
+    "palette": ["#FFFFFF", "#0F172A", "#2563EB", "#10B981"],
+    "materials": ["full-width photo hero", "service icon cards", "stats band", "partner logo strip"],
+    "viewport": "Large photo of infrastructure with headline over it, two buttons, then a grid of service cards.",
+    "risk": "Looks like every other IT firm; needs real photos you don't have yet."
+  },
+  "steer": true
+}

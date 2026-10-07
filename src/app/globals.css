@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/*
+  Painted agent kiosk. Paint fields own whole bands; the brief's palette
+  (slate, emerald, tech blue, crisp gray) becomes the paint tins, with sign
+  yellow added for lettering and the main action.
+*/
+@theme {
+  --color-kiosk: #2563eb;
+  --color-kiosk-deep: #1d4ed8;
+  --color-kiosk-ink: #1e3a8a;
+  --color-sign: #facc15;
+  --color-sign-deep: #ca8a04;
+  --color-ink: #0f172a;
+  --color-ink-soft: #334155;
+  --color-money: #10b981;
+  --color-money-deep: #047857;
+  --color-wall: #f8fafc;
+  --color-wall-shade: #e8edf3;
+  --color-mark: #3b4a9c;
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-sign: var(--font-showcard), var(--font-body), sans-serif;
+
+  --text-sign-xl: clamp(3rem, 7.4vw, 6rem);
+  --text-sign-lg: clamp(2.25rem, 4.6vw, 3.75rem);
+  --text-sign-md: clamp(1.75rem, 3vw, 2.5rem);
+  --text-sign-sm: 1.5rem;
+}
+
+/* Small phones: let the sign lettering shrink so long words still fit */
+@media (max-width: 400px) {
+  :root {
+    --text-sign-xl: clamp(2.5rem, 12.5vw, 3rem);
+    --text-sign-lg: clamp(1.875rem, 9vw, 2.25rem);
+  }
+}
+
+@layer base {
+  html {
+    background: var(--color-wall);
+    color: var(--color-ink);
+    -webkit-text-size-adjust: 100%;
+    scrollbar-color: var(--color-kiosk) var(--color-wall-shade);
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-sign);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px var(--color-ink);
+    border-radius: 4px;
+  }
+  ::selection {
+    background: var(--color-sign);
+    color: var(--color-ink);
+  }
+}
+
+/* Showcard lettering with the sign painter's drop shade */
+@utility sign {
+  font-family: var(--font-sign);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 0.98;
+  text-transform: none;
+}
+@utility shade {
+  text-shadow: 0.055em 0.06em 0 var(--shade, var(--color-ink));
+}
+
+/* A painted board: flat paint, brush grain, inner pinstripe */
+@utility board {
+  position: relative;
+  isolation: isolate;
+  border-radius: 6px;
+  outline: 2px solid var(--pin, color-mix(in srgb, currentColor 45%, transparent));
+  outline-offset: -10px;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='240'%3E%3Cfilter id='b'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004 0.09' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 -0.32'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23b)'/%3E%3C/svg%3E");
+    background-size: 480px 240px;
+    mix-blend-mode: multiply;
+    opacity: 0.1;
+  }
+}
+
+/* Brush grain shows on paint, not on whitewash */
+.board:is(.bg-white, .bg-wall, .bg-wall-shade)::after {
+  opacity: 0.035;
+}
+
+/* Lettering is brushed on once, left to right */
+@keyframes brush-in {
+  from {
+    clip-path: inset(-10% 100% -10% -2%);
+  }
+  to {
+    clip-path: inset(-10% -4% -10% -2%);
+  }
+}
+.brush-in {
+  animation: brush-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 0.16s + 0.1s);
+}
+@media (prefers-reduced-motion: reduce) {
+  .brush-in {
+    animation: none;
+  }
+}

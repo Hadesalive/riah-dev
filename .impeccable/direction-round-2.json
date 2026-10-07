@@ -1,0 +1,115 @@
+{
+  "title": "Choose the visual world for riah.dev (round 2)",
+  "question": "The new roll assigned Gara Indigo. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Gara Indigo",
+      "kicker": "THE ROLL",
+      "lineage": "Sierra Leonean gara tie-dye and resist-dyed indigo cloth",
+      "thesis": "Infrastructure dyed into Sierra Leone's own cloth: RIAH's circuit mark becomes the resist pattern in deep indigo fields.",
+      "palette": ["#16205A", "#0F172A", "#2563EB", "#F8FAFC", "#10B981"],
+      "materials": ["drenched indigo dye fields with soft bleed", "white resist patterns drawn from the logo's traces", "stitch-resist dotted lines", "big confident type set on the cloth"],
+      "viewport": "Full-bleed indigo cloth. Huge white headline saying what RIAH does, a ruled block naming all six services, one bright action. The logo's circuit mark repeats as a resist-dye pattern across the cloth.",
+      "risk": "Could read as fashion or craft unless the copy and structure stay engineering-clear.",
+      "raised": [
+        {"from": "Noir one-sheet", "raise": "Billing block: the hero names all six services in one tight ruled block, so the offer reads in five seconds."},
+        {"from": "Video store wall", "raise": "Face-out hierarchy: each section shows one item large and the rest compact, so nothing is equal weight."},
+        {"from": "Coptic exposed binding", "raise": "Structure showing: one stitched trace runs down the page connecting every section, the only ornament."}
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "Painted Agent Kiosk",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Freetown's hand-painted mobile-money and telecom kiosks",
+      "thesis": "The bold, painted signage everyone in Freetown reads daily, applied to an engineering firm.",
+      "palette": ["#2563EB", "#FACC15", "#10B981", "#0F172A", "#F8FAFC"],
+      "materials": ["flat saturated paint blocks", "hand-lettered sign type", "painted service lists"],
+      "viewport": "A painted storefront: big blue sign 'RIAH SL', painted boards listing services like a kiosk menu.",
+      "risk": "Very local and loud; ministries may find it informal. A familiar 'African vernacular' move."
+    },
+    {
+      "id": "challenger-noir",
+      "label": "Noir One-Sheet",
+      "verdict": "declined",
+      "lineage": "1940s crime film posters",
+      "thesis": "Two inks, one huge shadow, a billing block.",
+      "palette": ["#111111", "#D9A13B", "#EFE6D2"],
+      "materials": ["duotone", "cast shadow"],
+      "viewport": "A small figure, a giant shadow, condensed title.",
+      "case": "Dramatic but suggests crime and menace, wrong for trust.",
+      "kept": "The billing block naming every service at once.",
+      "risk": "Ominous.",
+      "hero": "https://impeccable.style/worlds/cards/posters-covers-sleeves-noir-one-sheet-duotone-hero.webp"
+    },
+    {
+      "id": "challenger-vhs",
+      "label": "Video Store Wall",
+      "verdict": "declined",
+      "lineage": "VHS rental shelves",
+      "thesis": "Services as boxes on shelves by sector.",
+      "palette": ["#111111", "#C8102E", "#2E6FD8", "#F2C230"],
+      "materials": ["clamshell spines", "shelf talkers"],
+      "viewport": "A wall of spines.",
+      "case": "Playful nostalgia, no fit for public-sector buyers.",
+      "kept": "Face-out versus spine-out hierarchy.",
+      "risk": "Novelty.",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-vhs-rental-wall-hero.webp"
+    },
+    {
+      "id": "challenger-binding",
+      "label": "Coptic Exposed Binding",
+      "verdict": "declined",
+      "lineage": "Hand-bound books with visible stitching",
+      "thesis": "Nothing hidden; the structure is the ornament.",
+      "palette": ["#E9E1D0", "#8A6A43", "#3B3328"],
+      "materials": ["linen thread", "wooden boards"],
+      "viewport": "A spine of chain stitches.",
+      "case": "Honest structure, but bookish and quiet.",
+      "kept": "One stitched trace connecting every section.",
+      "risk": "Too soft.",
+      "hero": "https://impeccable.style/worlds/cards/craft-making-coptic-exposed-binding-hero.webp"
+    },
+    {
+      "id": "challenger-scope",
+      "label": "Oscilloscope Bench",
+      "verdict": "declined",
+      "lineage": "CRT test equipment",
+      "thesis": "Signals on a phosphor graticule.",
+      "palette": ["#0A0F0A", "#39FF6A", "#F2A73B"],
+      "materials": ["phosphor", "graticule"],
+      "viewport": "A green trace on black glass.",
+      "case": "The neon-on-black cliché, and hard for non-engineers.",
+      "kept": "Every claim measured against a grid of specifics.",
+      "risk": "Generic hacker look.",
+      "hero": "https://impeccable.style/worlds/cards/scientific-notation-oscilloscope-signal-bench-hero.webp"
+    },
+    {
+      "id": "challenger-hypercard",
+      "label": "HyperCard Stack",
+      "verdict": "declined",
+      "lineage": "1987 HyperCard",
+      "thesis": "Linked black-and-white cards.",
+      "palette": ["#000000", "#FFFFFF"],
+      "materials": ["dither", "painted buttons"],
+      "viewport": "A stack of cards.",
+      "case": "Retro, not credible for enterprise.",
+      "kept": "Every card deep-linkable.",
+      "risk": "Joke-like.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-hypercard-stack-shoebox-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": false},
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A classic corporate IT-services site, executed well.",
+    "palette": ["#FFFFFF", "#0F172A", "#2563EB", "#10B981"],
+    "materials": ["full-width photo hero", "service icon cards", "stats band", "partner logo strip"],
+    "viewport": "Large photo of infrastructure with headline over it, two buttons, then a grid of service cards.",
+    "risk": "Looks like every other IT firm; needs real photos you don't have yet."
+  },
+  "steer": true
+}
