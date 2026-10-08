@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Atkinson_Hyperlegible_Next, Bowlby_One } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { ogImage, organizationJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -32,19 +33,28 @@ export const metadata: Metadata = {
     "Linux system administration",
     "Zoho implementation Sierra Leone",
   ],
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: site.legalName,
-    url: site.url,
+    locale: "en_GB",
+    url: "/",
+    title: "RIAH SL — Network, cloud and payment engineering in Sierra Leone",
     description: site.description,
-    images: [{ url: "/brand/riah-logo.png", width: 2896, height: 616, alt: site.legalName }],
+    images: [ogImage],
   },
+  twitter: { card: "summary_large_image", images: [ogImage.url] },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${showcard.variable} ${body.variable} antialiased`}>
+    <html lang="en-GB" className={`${showcard.variable} ${body.variable} antialiased`}>
       <body className="flex min-h-dvh flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <a
           href="#main"
           className="sr-only z-50 bg-sign px-4 py-2 font-bold text-ink focus:not-sr-only focus:fixed focus:top-2 focus:left-2"

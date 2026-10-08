@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ClosingCall } from "@/components/closing-call";
 import { Pictogram, type PictogramName } from "@/components/pictogram";
 import { SignBand } from "@/components/sign-band";
 
-export const metadata: Metadata = {
-  title: "Industries",
+export const metadata: Metadata = pageMetadata({
+  title: "IT for health programmes, banks, ministries & hotels",
   description:
-    "Engineering for health programmes, banks and fintechs, ministries and agencies, and hotels in Sierra Leone: DHIS2, RapidPro SMS, Monime payments, secure networks, Linux servers, Wi-Fi and Waka TV.",
-};
+    "DHIS2, RapidPro SMS, Monime payments, secure networks, servers, Wi-Fi and Waka TV for health programmes, banks, ministries and hotels in Sierra Leone.",
+  path: "/industries",
+});
 
 type Sector = {
   id: string;

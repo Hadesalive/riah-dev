@@ -6,7 +6,7 @@ export const site = {
   supportEmail: "support@riah.dev",
   // Add LinkedIn and GitHub URLs here once the profiles exist, then link them in the footer.
   description:
-    "Network consultancy, Linux and cloud systems, RapidPro SMS, Monime payment integration and DHIS2 implementation for enterprises and public institutions in Sierra Leone and West Africa.",
+    "Network consultancy, Linux servers, RapidPro SMS, Monime payments and DHIS2 for businesses and public institutions in Sierra Leone and West Africa.",
 };
 
 export const nav = [

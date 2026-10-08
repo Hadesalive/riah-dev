@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ClosingCall } from "@/components/closing-call";
 import { Pictogram, type PictogramName } from "@/components/pictogram";
 import { SignBand } from "@/components/sign-band";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = pageMetadata({
+  title: "About us: IT engineers in Sierra Leone",
   description:
-    "RIAH SL is an ICT services and engineering firm in Sierra Leone specialising in network infrastructure, application deployment, RapidPro and Monime integration, Linux servers and health informatics.",
-};
+    "RIAH SL Limited is an ICT engineering company in Sierra Leone: networks, Linux servers, software testing, RapidPro SMS, Monime payments and DHIS2.",
+  path: "/about",
+});
 
 const capabilities: { name: string; pictogram: PictogramName; body: string }[] = [
   {

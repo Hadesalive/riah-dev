@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ButtonLink } from "@/components/button";
 import { ClosingCall } from "@/components/closing-call";
 import { Pictogram } from "@/components/pictogram";
 import { SignBand } from "@/components/sign-band";
 import { services } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Services",
+export const metadata: Metadata = pageMetadata({
+  title: "Network, server, SMS & DHIS2 services in Sierra Leone",
   description:
-    "Network consultancy, RapidPro SMS and Monime payment integration, application testing and deployment, Linux and PostgreSQL administration, and DHIS2 implementation.",
-};
+    "Network consultancy, firewalls, Starlink and fibre, RapidPro SMS, Monime mobile money, app testing, Linux and PostgreSQL, and DHIS2 in Sierra Leone.",
+  path: "/services",
+});
 
 const engineering = services.filter((s) => s.offerings.length > 0);
 

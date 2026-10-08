@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Suspense } from "react";
 import { ContactForm, TopicAwareContactForm } from "@/components/contact-form";
 import { Pictogram } from "@/components/pictogram";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact",
+export const metadata: Metadata = pageMetadata({
+  title: "Request a technical consultation",
   description:
-    "Request a technical consultation with RIAH SL for network consultancy, RapidPro SMS and Monime integration, app testing, DHIS2 or software licensing.",
-};
+    "Contact RIAH SL in Sierra Leone about network consultancy, RapidPro SMS and Monime integration, application testing, Linux servers, DHIS2 or software licensing.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

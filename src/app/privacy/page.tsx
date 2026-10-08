@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ProsePage } from "@/components/prose-page";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Privacy policy" };
+export const metadata: Metadata = pageMetadata({
+  title: "Privacy policy",
+  description:
+    "How RIAH SL Limited handles the personal information you send through riah.dev.",
+  path: "/privacy",
+});;
 
 // Plain-language starting point. Have it reviewed before launch.
 export default function PrivacyPage() {

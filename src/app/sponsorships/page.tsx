@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ButtonLink } from "@/components/button";
 import { Pictogram, type PictogramName } from "@/components/pictogram";
 import { SignBand } from "@/components/sign-band";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Global exchange & sponsorships",
   description:
-    "RIAH SL takes part in international ICT forums, health information system convenings and developer summits, and welcomes sponsorship and grant partners.",
-};
+    "RIAH SL takes part in international ICT forums, health information system convenings and developer summits, with support from sponsors and grant partners.",
+  path: "/sponsorships",
+});
 
 const value: { name: string; pictogram: PictogramName; body: string }[] = [
   {

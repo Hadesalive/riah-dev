@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ProsePage } from "@/components/prose-page";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Terms of service" };
+export const metadata: Metadata = pageMetadata({
+  title: "Terms of service",
+  description:
+    "The terms that cover your use of riah.dev, the website of RIAH SL Limited.",
+  path: "/terms",
+});;
 
 // Plain-language starting point. Have it reviewed before launch.
 export default function TermsPage() {

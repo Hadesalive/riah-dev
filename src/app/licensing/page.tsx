@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ClosingCall } from "@/components/closing-call";
 import { Pictogram } from "@/components/pictogram";
 import { SignBand } from "@/components/sign-band";
 import { licensing } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Enterprise software & licensing",
+export const metadata: Metadata = pageMetadata({
+  title: "Zoho, firewall licences & Waka TV in Sierra Leone",
   description:
-    "Zoho products, next-generation firewall licences and Waka TV enterprise IPTV, supplied, installed and renewed in Sierra Leone.",
-};
+    "Zoho CRM, Desk, Workplace and MDM, next-generation firewall licences and Waka TV enterprise IPTV, supplied, installed and renewed in Sierra Leone by RIAH SL.",
+  path: "/licensing",
+});
 
 const paint = [
   "bg-sign text-ink [--pin:color-mix(in_srgb,#0f172a_30%,transparent)]",
