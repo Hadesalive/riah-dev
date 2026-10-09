@@ -31,14 +31,14 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="tone-light mt-auto border-t border-line bg-surface">
+    <footer className="tone-dark mt-auto border-t border-(--hairline) bg-night-deep">
       <Container>
         <div className="grid gap-12 py-section lg:grid-cols-[5fr_7fr] lg:gap-16">
           <div>
             <Text size="small">Write to us</Text>
             <a
               href={`mailto:${site.email}`}
-              className="mt-2 inline-block font-heading text-h1 break-all text-fg transition-colors duration-(--duration-fast) hover:text-accent-strong"
+              className="mt-2 inline-block font-heading text-h1 break-all text-(--fg) transition-colors duration-(--duration-fast) hover:text-(--link)"
             >
               {site.email}
             </a>
@@ -55,7 +55,7 @@ export function Footer() {
                     <li key={l.href + l.label}>
                       <Link
                         href={l.href}
-                        className="break-words text-fg underline decoration-line decoration-1 underline-offset-4 transition-colors duration-(--duration-fast) hover:decoration-accent"
+                        className="break-words text-(--fg) underline decoration-(--hairline) decoration-1 underline-offset-4 transition-colors duration-(--duration-fast) hover:decoration-(--link)"
                       >
                         {l.label}
                       </Link>
@@ -68,7 +68,7 @@ export function Footer() {
         </div>
       </Container>
 
-      <div className="tone-dark bg-night-deep">
+      <div className="border-t border-(--hairline)">
         <Container className="flex flex-col gap-5 py-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-4">
             <Image
