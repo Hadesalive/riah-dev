@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ClosingCall } from "@/components/closing-call";
 import { HeroBackdrop } from "@/components/hero-backdrop";
 import { Pictogram } from "@/components/pictogram";
 import { Button } from "@/components/ui/button";
@@ -323,23 +324,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Closing call */}
-      <Section tone="deep" aria-labelledby="closing-title">
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
-          <SectionHead
-            id="closing-title"
-            align="start"
-            title="Tell us what needs fixing."
-            lead="A few lines is enough. We reply with questions or a proposed scope."
-            action={
-              <Button href="/contact" size="lg">
-                Request a consultation
-              </Button>
-            }
-          />
-          <Pictogram name="sms" className="hidden size-36 lg:block" />
-        </div>
-      </Section>
+      <ClosingCall />
     </>
   );
 }

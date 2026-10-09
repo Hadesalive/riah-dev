@@ -1,24 +1,25 @@
-import { ButtonLink } from "./button";
 import { Pictogram } from "./pictogram";
+import { Button } from "./ui/button";
+import { Section } from "./ui/section";
+import { SectionHead } from "./ui/section-head";
 
 export function ClosingCall() {
   return (
-    <section className="px-3 py-3 sm:px-4 sm:py-4">
-      <div className="board mx-auto grid max-w-7xl items-center gap-10 bg-money px-6 py-14 text-ink sm:px-12 sm:py-20 lg:grid-cols-[auto_1fr_auto] [--pin:color-mix(in_srgb,#0f172a_35%,transparent)]">
-        <Pictogram name="sms" className="hidden size-28 lg:block" />
-        <div>
-          <h2 className="sign shade text-sign-md text-ink [--shade:var(--color-wall)]">
-            Tell us what needs fixing.
-          </h2>
-          <p className="mt-4 max-w-xl text-lg font-medium">
-            A few lines is enough. We reply with questions or a proposed
-            scope.
-          </p>
-        </div>
-        <ButtonLink href="/contact" size="lg" className="justify-self-start">
-          Request a consultation
-        </ButtonLink>
+    <Section tone="deep" aria-labelledby="closing-title">
+      <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+        <SectionHead
+          id="closing-title"
+          align="start"
+          title="Tell us what needs fixing."
+          lead="A few lines is enough. We reply with questions or a proposed scope."
+          action={
+            <Button href="/contact" size="lg">
+              Request a consultation
+            </Button>
+          }
+        />
+        <Pictogram name="sms" className="hidden size-36 lg:block" />
       </div>
-    </section>
+    </Section>
   );
 }

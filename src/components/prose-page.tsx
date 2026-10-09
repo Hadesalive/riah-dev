@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { SignBand } from "./sign-band";
+import { PageHero } from "./page-hero";
+import { Section } from "./ui/section";
 
 /** Long-form text pages such as the privacy policy and terms. */
 export function ProsePage({
@@ -13,14 +14,14 @@ export function ProsePage({
 }) {
   return (
     <>
-      <SignBand title={title}>
+      <PageHero eyebrow="Legal" title={title}>
         <p>Last updated {updated}</p>
-      </SignBand>
-      <article className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div className="max-w-2xl space-y-5 text-lg leading-relaxed text-ink-soft [&_a]:font-bold [&_a]:text-kiosk-ink [&_a]:underline [&_a]:decoration-2 [&_a]:underline-offset-4 [&_h2]:pt-8 [&_h2]:font-[family-name:var(--font-sign)] [&_h2]:text-2xl [&_h2]:text-ink [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6 [&_ul]:marker:text-kiosk">
+      </PageHero>
+      <Section width="narrow">
+        <article className="max-w-measure space-y-5 text-body text-fg-muted [&_a]:font-semibold [&_a]:text-accent-strong [&_a]:underline [&_a]:decoration-1 [&_a]:underline-offset-4 [&_a:hover]:decoration-2 [&_h2]:pt-8 [&_h2]:font-heading [&_h2]:text-h3 [&_h2]:text-fg [&_li]:marker:text-accent [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6">
           {children}
-        </div>
-      </article>
+        </article>
+      </Section>
     </>
   );
 }

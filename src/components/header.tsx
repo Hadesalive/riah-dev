@@ -21,8 +21,8 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Clear over the home hero, frosted night once the page moves
-  const clear = pathname === "/" && !scrolled && !open;
+  // Every page opens on a night hero: clear over it, frosted once the page moves
+  const clear = !scrolled && !open;
 
   return (
     <header
