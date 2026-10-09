@@ -27,9 +27,10 @@ export function SectionHead({
           {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
           <Heading id={id}>{title}</Heading>
         </div>
-        <div>
+        {/* With no lead, the action sits flush right across from the title */}
+        <div className={lead ? "" : "lg:justify-self-end"}>
           {lead && <Text size="lead">{lead}</Text>}
-          {action && <div className="mt-6">{action}</div>}
+          {action && <div className={lead ? "mt-6" : "mt-2 lg:mt-0"}>{action}</div>}
         </div>
       </div>
     );

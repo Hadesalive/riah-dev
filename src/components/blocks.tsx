@@ -14,25 +14,57 @@ import { Text } from "./ui/text";
   identical grids.
 */
 
-/** The five stages as a numbered timeline on an inset night panel. */
+/** The five stages as one connected timeline on an inset night panel. */
 export function ProjectSteps() {
   return (
     <Section aria-labelledby="steps-title">
-      <div className="tone-dark rounded-lg bg-night px-6 py-section-sm sm:px-10 lg:px-16 lg:py-section">
-        <SectionHead id="steps-title" eyebrow="How we work" title="How a project runs" />
-        <ol className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="tone-dark relative isolate overflow-hidden rounded-lg bg-night px-6 py-section-sm sm:px-10 lg:px-16 lg:py-section">
+        {/* A soft light from the top right gives the panel depth */}
+        <div
+          aria-hidden="true"
+          className="absolute -top-1/2 -right-1/4 -z-10 size-[48rem] rounded-full bg-accent/20 blur-3xl"
+        />
+        <SectionHead
+          id="steps-title"
+          align="split"
+          eyebrow="How we work"
+          title="How a project runs"
+          action={
+            <Button href="/contact" variant="solid">
+              Request a consultation
+            </Button>
+          }
+        />
+        <ol className="mt-14 grid gap-y-10 lg:grid-cols-5 lg:gap-x-8">
           {steps.map((step, i) => (
-            <li key={step.name} className="relative border-t border-(--hairline) pt-8">
-              <span className="absolute -top-px left-0 h-0.5 w-10 bg-signal" aria-hidden="true" />
-              <span className="font-heading text-h1 text-fg-inverse-muted tabular-nums">
+            <li
+              key={step.name}
+              className="relative grid grid-cols-[3rem_1fr] gap-x-5 lg:block"
+            >
+              {/* Connector to the next step: down on mobile, across on desktop */}
+              {i < steps.length - 1 && (
+                <span
+                  aria-hidden="true"
+                  className="absolute top-14 -bottom-8 left-6 w-px bg-linear-to-b from-signal/70 to-white/15 lg:top-6 lg:right-[-2rem] lg:bottom-auto lg:left-16 lg:h-px lg:w-auto lg:bg-linear-to-r"
+                />
+              )}
+              <span
+                className={`relative flex size-12 items-center justify-center rounded-full font-heading text-small font-semibold tabular-nums ${
+                  i === 0
+                    ? "bg-signal text-fg"
+                    : "bg-night text-fg-inverse ring-1 ring-white/20"
+                }`}
+              >
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <Heading as="h3" size="h4" className="mt-4">
-                {step.name}
-              </Heading>
-              <Text size="small" className="mt-2">
-                {step.detail}
-              </Text>
+              <div className="lg:mt-6">
+                <Heading as="h3" size="h4" className="pt-2.5 lg:pt-0">
+                  {step.name}
+                </Heading>
+                <Text size="small" className="mt-2 max-w-xs">
+                  {step.detail}
+                </Text>
+              </div>
             </li>
           ))}
         </ol>
