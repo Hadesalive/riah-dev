@@ -49,9 +49,16 @@ export const organizationJsonLd = {
       "@type": "ProfessionalService",
       "@id": `${site.url}/#organization`,
       name: site.legalName,
-      alternateName: site.name,
+      legalName: site.legalName,
+      alternateName: site.alternateNames,
       url: site.url,
-      logo: `${site.url}/brand/riah-logo.png`,
+      // Square, so Google can use it beside search results and in panels
+      logo: {
+        "@type": "ImageObject",
+        url: `${site.url}/brand/riah-icon-square-512.png`,
+        width: 512,
+        height: 512,
+      },
       image: `${site.url}/og.png`,
       email: site.email,
       description: site.description,
@@ -90,7 +97,9 @@ export const organizationJsonLd = {
       "@type": "WebSite",
       "@id": `${site.url}/#website`,
       url: site.url,
+      // Google reads the site name shown above search results from here
       name: site.legalName,
+      alternateName: site.alternateNames,
       inLanguage: "en-GB",
       publisher: { "@id": `${site.url}/#organization` },
     },

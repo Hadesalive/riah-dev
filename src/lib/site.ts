@@ -1,6 +1,8 @@
 export const site = {
   name: "RIAH SL",
   legalName: "RIAH SL Limited",
+  /** Other names people search for; feeds the structured data Google reads */
+  alternateNames: ["RIAH SL", "RIAH Sierra Leone Limited", "RIAH Sierra Leone", "RIAH"],
   url: "https://riah.dev",
   email: "info@riah.dev",
   supportEmail: "support@riah.dev",
