@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ClosingCall } from "@/components/closing-call";
+import { PageHero } from "@/components/page-hero";
 import { Pictogram, type PictogramName } from "@/components/pictogram";
-import { SignBand } from "@/components/sign-band";
+import { SubNav } from "@/components/sub-nav";
+import { Eyebrow, Heading } from "@/components/ui/heading";
+import { Section } from "@/components/ui/section";
+import { Text } from "@/components/ui/text";
 
 export const metadata: Metadata = pageMetadata({
   title: "IT for health programmes, banks, ministries & hotels",
@@ -19,16 +23,9 @@ type Sector = {
   lead: string;
   work: { name: string; detail: string }[];
   services: { href: string; label: string }[];
-  /** band paint, lettering, rules and body text for this sector */
-  band: string;
-  title: string;
-  rule: string;
-  term: string;
-  body: string;
-  chip: string;
 };
 
-// Four sectors, equal weight, each on its own paint
+// Four sectors, equal weight
 const sectors: Sector[] = [
   {
     id: "health",
@@ -46,12 +43,6 @@ const sectors: Sector[] = [
       { href: "/services#messaging", label: "SMS & payments" },
       { href: "/services#linux", label: "Servers" },
     ],
-    band: "bg-money",
-    term: "text-ink",
-    title: "text-ink [--shade:var(--color-wall)]",
-    rule: "border-ink/25",
-    body: "text-ink",
-    chip: "bg-ink text-white hover:bg-white hover:text-ink",
   },
   {
     id: "fintech",
@@ -69,12 +60,6 @@ const sectors: Sector[] = [
       { href: "/services#testing", label: "Testing & deployment" },
       { href: "/services#network", label: "Networks" },
     ],
-    band: "bg-sign",
-    term: "text-ink",
-    title: "text-ink [--shade:var(--color-sign-deep)]",
-    rule: "border-ink/25",
-    body: "text-ink",
-    chip: "bg-ink text-white hover:bg-white hover:text-ink",
   },
   {
     id: "government",
@@ -92,12 +77,6 @@ const sectors: Sector[] = [
       { href: "/services#linux", label: "Servers" },
       { href: "/licensing", label: "Licensing" },
     ],
-    band: "bg-kiosk",
-    term: "text-white",
-    title: "text-sign",
-    rule: "border-white/25",
-    body: "text-blue-50",
-    chip: "bg-white text-ink hover:bg-sign",
   },
   {
     id: "hospitality",
@@ -114,52 +93,51 @@ const sectors: Sector[] = [
       { href: "/services#network", label: "Networks" },
       { href: "/licensing", label: "Waka TV" },
     ],
-    band: "bg-ink",
-    term: "text-white",
-    title: "text-sign [--shade:#000]",
-    rule: "border-white/20",
-    body: "text-slate-300",
-    chip: "bg-white text-ink hover:bg-sign",
   },
 ];
 
 export default function IndustriesPage() {
   return (
     <>
-      <SignBand title="Who we work for" pictogram="ministry">
+      <PageHero eyebrow="Industries" title="Who we work for" pictogram="ministry">
         <p>
           Health programmes, banks and fintechs, ministries and hotels. Find
           your sector to see what we would build for you.
         </p>
-      </SignBand>
+      </PageHero>
 
-      <nav aria-label="Sectors on this page" className="sticky top-18 z-30 bg-ink">
-        <ul className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-2 sm:px-4 lg:px-6">
-          {sectors.map((s) => (
-            <li key={s.id} className="shrink-0">
-              <a href={`#${s.id}`} className="flex items-center gap-2.5 px-3 py-3 font-semibold whitespace-nowrap text-white hover:text-sign">
-                <Pictogram name={s.pictogram} className="size-7" />
-                {s.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <SubNav
+        label="Sectors on this page"
+        items={sectors.map((s) => ({ id: s.id, label: s.name, pictogram: s.pictogram }))}
+      />
 
-      {sectors.map((s) => (
-        <section key={s.id} id={s.id} aria-labelledby={`${s.id}-title`} className={`scroll-mt-32 ${s.band}`}>
-          <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[5fr_7fr] lg:gap-16 lg:px-8 lg:py-24">
+      {sectors.map((s, i) => (
+        <Section
+          key={s.id}
+          id={s.id}
+          tone={i % 2 ? "alt" : "surface"}
+          aria-labelledby={`${s.id}-title`}
+          className="scroll-mt-32"
+        >
+          <div className="grid gap-10 lg:grid-cols-[5fr_7fr] lg:gap-16">
             <div>
-              <Pictogram name={s.pictogram} className="size-24 drop-shadow-[0_8px_10px_rgba(15,23,42,0.25)] sm:size-32" />
-              <h2 id={`${s.id}-title`} className={`sign shade mt-6 text-sign-md ${s.title}`}>
+              <Pictogram name={s.pictogram} className="size-20 sm:size-24" />
+              <Heading id={`${s.id}-title`} className="mt-6">
                 {s.name}
-              </h2>
-              <p className={`mt-5 max-w-md text-lg leading-relaxed font-medium ${s.body}`}>{s.lead}</p>
-              <p className={`mt-8 font-bold ${s.body}`}>Services involved</p>
+              </Heading>
+              <Text size="lead" className="mt-4 max-w-md">
+                {s.lead}
+              </Text>
+              <Eyebrow className="mt-8">Services involved</Eyebrow>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {s.services.map((l) => (
                   <li key={l.label}>
-                    <Link href={l.href} className={`inline-block rounded-full px-4 py-1.5 text-sm font-bold ${s.chip}`}>
+                    <Link
+                      href={l.href}
+                      className={`inline-block rounded-xs px-3 py-1.5 text-caption text-fg ring-1 ring-line transition-colors duration-(--duration-fast) hover:ring-accent ${
+                        i % 2 ? "bg-surface" : "bg-surface-alt"
+                      }`}
+                    >
                       {l.label}
                     </Link>
                   </li>
@@ -168,19 +146,16 @@ export default function IndustriesPage() {
             </div>
             <dl className="grid gap-x-10 sm:grid-cols-2 lg:mt-2">
               {s.work.map((w) => (
-                <div key={w.name} className={`border-t-4 py-5 ${s.rule}`}>
-                  <dt className={`text-xl font-bold ${s.term}`}>
-                    {w.name}
-                  </dt>
-                  <dd className={`mt-1.5 leading-relaxed ${s.body}`}>{w.detail}</dd>
+                <div key={w.name} className="border-t border-line py-6">
+                  <dt className="font-heading text-h4 text-fg">{w.name}</dt>
+                  <dd className="mt-1.5 text-fg-muted">{w.detail}</dd>
                 </div>
               ))}
             </dl>
           </div>
-        </section>
+        </Section>
       ))}
 
-      <div className="pt-3 sm:pt-4" />
       <ClosingCall />
     </>
   );
