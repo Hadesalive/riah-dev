@@ -44,7 +44,7 @@ export default function ServicesPage() {
           className="scroll-mt-32"
         >
           <div className="grid gap-10 lg:grid-cols-[5fr_7fr] lg:gap-16">
-            <div>
+            <div className="lg:sticky lg:top-36 lg:self-start">
               <Pictogram name={s.pictogram} className="size-20 sm:size-24" />
               <Text size="small" className="mt-6 font-semibold text-accent-strong">
                 {s.title}

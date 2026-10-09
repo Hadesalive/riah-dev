@@ -37,7 +37,11 @@ const value: { name: string; pictogram: PictogramName; body: string }[] = [
 export default function SponsorshipsPage() {
   return (
     <>
-      <PageHero eyebrow="Global exchange" title="Global exchange & sponsorships" pictogram="globe">
+      <PageHero
+        eyebrow="Global exchange"
+        title="Global exchange & sponsorships"
+        pictogram="globe"
+      >
         <p>
           We take part in international ICT forums, health information system
           convenings, developer summits and technical working groups.
@@ -45,23 +49,21 @@ export default function SponsorshipsPage() {
       </PageHero>
 
       <Section aria-labelledby="help-title">
-        <div className="grid items-start gap-10 lg:grid-cols-[7fr_5fr] lg:gap-16">
-          <SectionHead
-            id="help-title"
-            align="start"
-            title="How sponsors help"
-            lead="Development partners, technology vendors and grant-making institutions help our team attend these events."
-          />
-          <Card className="border-t-4 border-t-accent shadow-md">
-            <Heading as="h2" size="h3">
-              Our main funding need
-            </Heading>
-            <Text className="mt-3">
-              Travel, accommodation and registration. Covering these is usually
-              what decides whether our team can attend.
-            </Text>
-          </Card>
-        </div>
+        <SectionHead
+          id="help-title"
+          align="split"
+          title="How sponsors help"
+          lead="Development partners, technology vendors and grant-making institutions help our team attend these events."
+        />
+        <Card className="mt-12 gap-3 shadow-md lg:grid lg:grid-cols-2 lg:items-baseline lg:gap-12">
+          <Heading as="h2" size="h3">
+            Our main funding need
+          </Heading>
+          <Text size="lead">
+            Travel, accommodation and registration. Covering these is usually
+            what decides whether our team can attend.
+          </Text>
+        </Card>
       </Section>
 
       <Section tone="alt" aria-labelledby="partners-title">

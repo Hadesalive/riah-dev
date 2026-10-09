@@ -284,44 +284,37 @@ export default function Home() {
 
       {/* Licensing */}
       <Section aria-labelledby="licensing-title">
-        <div className="grid gap-12 lg:grid-cols-[5fr_7fr] lg:gap-16">
-          <SectionHead
-            id="licensing-title"
-            align="start"
-            eyebrow="Licensing"
-            title="We also supply the software"
-            lead="We install and renew every licence we sell."
-            action={<Button href="/licensing">See licensing</Button>}
-          />
-          <ul className="divide-y divide-line border-y border-line">
-            {licensing.map((l) => (
-              <li
-                key={l.product}
-                className="grid grid-cols-[auto_1fr] items-start gap-x-5 py-6"
-              >
+        <SectionHead
+          id="licensing-title"
+          align="split"
+          eyebrow="Licensing"
+          title="We also supply the software"
+          lead="We install and renew every licence we sell."
+          action={<Button href="/licensing">See licensing</Button>}
+        />
+        <ul className="mt-12 grid gap-4 md:grid-cols-3 lg:gap-6">
+          {licensing.map((l) => (
+            <li key={l.product}>
+              <Card className="h-full">
                 <Pictogram name={l.pictogram} className="size-12" />
-                <div>
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                    <Heading as="h3" size="h4">
-                      {l.short}
-                    </Heading>
-                    <Text
-                      as="span"
-                      size="caption"
-                      tone="subtle"
-                      className="uppercase tracking-wide"
-                    >
-                      Supplied and installed
-                    </Text>
-                  </div>
-                  <Text size="small" className="mt-1">
-                    {l.fit}
-                  </Text>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+                <Heading as="h3" size="h4" className="mt-5">
+                  {l.short}
+                </Heading>
+                <Text
+                  as="span"
+                  size="caption"
+                  tone="subtle"
+                  className="mt-1 uppercase tracking-wide"
+                >
+                  Supplied and installed
+                </Text>
+                <Text size="small" className="mt-3">
+                  {l.fit}
+                </Text>
+              </Card>
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <ClosingCall />
