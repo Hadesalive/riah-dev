@@ -11,7 +11,7 @@ logos, imagery, illustrations, icons or copy are used anywhere.
 - Measured on 2026-10-09 in a real Chrome session (Claude in Chrome) using
   `getComputedStyle` tallies across every visible element, plus a visual
   scroll-through of the homepage and `/services.html`. Raw numbers are in
-  `scripts/infosys-raw.json`.
+  `docs/research/infosys-measurements.json`.
 - Playwright was blocked by Akamai ("Access Denied"). I did not try to get
   around the block, and those captures were thrown away.
 - **Gap:** the browser window could not go below about 1347px, so desktop

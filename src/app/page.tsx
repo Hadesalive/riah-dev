@@ -85,7 +85,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* What we do: the menu board, as a frosted panel over the photo */}
+            {/* What we do: a frosted panel over the photo */}
             <nav
               aria-labelledby="menu-title"
               className="rise rounded-md bg-night/70 p-5 ring-1 ring-white/10 backdrop-blur-md sm:p-7"

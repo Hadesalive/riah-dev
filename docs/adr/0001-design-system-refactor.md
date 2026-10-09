@@ -1,6 +1,6 @@
 # ADR 0001: Design system refactor (structure from infosys.com, RIAH brand kept)
 
-- Status: accepted, in progress (home page done; inner pages pending)
+- Status: accepted, implemented across all pages
 - Date: 2026-10-09
 - Related: `docs/design-dna.md`
 
@@ -33,11 +33,11 @@ it up in `docs/design-dna.md`.
    placeholder (`public/hero/freetown-dusk.jpg`, made with Figma AI) until the
    client supplies a real photo. It replaced the hand-drawn rays/hills/mast
    mural, which the owner rejected.
-6. **Rollout:** home page, header and footer first, so the client can check
-   it. The inner pages still use the legacy kiosk utilities (`board`, `sign`,
-   `shade`, `brush-in`, `ButtonLink`, `SignBand`, `ClosingCall`) until they
-   are migrated. Then those, the Bowlby One font and the legacy `@theme`
-   colours get deleted.
+6. **Rollout:** home page, header and footer first, so the client could check
+   it, then every inner page. The legacy kiosk utilities (`board`, `sign`,
+   `shade`, `brush-in`), `ButtonLink`, `SignBand`, the Bowlby One font and the
+   legacy `@theme` colours have been deleted. `DESIGN.md` now documents the
+   new system.
 
 ## Adapted from infosys.com
 
@@ -61,8 +61,6 @@ it up in `docs/design-dna.md`.
 
 ## Consequences
 
-- Until the inner pages are migrated, two visual systems live side by side.
-  The shared header and footer are already new on every page.
 - The hero image is AI-generated. It's a placeholder and should not be
   presented as a real photo of RIAH's work.
 - Contrast: every text/background token pair passes WCAG AA. `fg-subtle` was

@@ -215,7 +215,7 @@ export const serviceOptions = [
   "General inquiry",
 ];
 
-/** The kiosk menu board: what we do, in the words a buyer would use */
+/** The What we do panel: our work, in the words a buyer would use */
 export const menu: { label: string; detail: string; href: string; pictogram: PictogramName }[] = [
   { label: "Internet & networks", detail: "Starlink, fibre, Wi-Fi", href: "/services#network", pictogram: "network" },
   { label: "Firewalls & security", detail: "Next-gen firewalls, VPN", href: "/services#network", pictogram: "firewall" },

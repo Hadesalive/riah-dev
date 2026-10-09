@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Atkinson_Hyperlegible_Next, Bowlby_One, Geist } from "next/font/google";
+import { Atkinson_Hyperlegible_Next, Geist } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ogImage, organizationJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-// Geist for headings, a highly legible sans for everything read. Showcard
-// lettering stays only until the inner pages move to the new system.
+// Geist for headings, a highly legible sans for everything read
 const geist = Geist({
   variable: "--font-geist",
-  subsets: ["latin"],
-});
-const showcard = Bowlby_One({
-  variable: "--font-showcard",
-  weight: "400",
   subsets: ["latin"],
 });
 const body = Atkinson_Hyperlegible_Next({
@@ -54,7 +48,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-GB" className={`${geist.variable} ${showcard.variable} ${body.variable} antialiased`}>
+    <html lang="en-GB" className={`${geist.variable} ${body.variable} antialiased`}>
       <body className="flex min-h-dvh flex-col">
         <script
           type="application/ld+json"
@@ -62,7 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <a
           href="#main"
-          className="sr-only z-50 bg-sign px-4 py-2 font-bold text-ink focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+          className="sr-only z-50 rounded-sm bg-signal px-4 py-2 font-semibold text-fg focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
         >
           Skip to content
         </a>

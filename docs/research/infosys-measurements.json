@@ -1,0 +1,41 @@
+{
+  "_note": "Measured in the user's own Chrome via Claude in Chrome on 2026-10-09 (Playwright was blocked by Akamai; those captures were discarded). Viewport 1800px; the window could not go below ~1347px, so 768/390 values are not measured.",
+  "home_1800": {
+    "fontFamilies": { "Inter, sans-serif": 122, "Geist, sans-serif": 39 },
+    "fontSizes": { "16px": 94, "20px": 21, "24px": 17, "18px": 9, "32px": 5, "13px": 5, "126px": 3, "14px": 3, "90px": 2, "15px": 1, "48px": 1 },
+    "fontWeights": { "500": 76, "400": 73, "600": 7, "300": 4, "700": 1 },
+    "textColors": { "#0E0A42": 81, "#444C79": 39, "#FFFFFF": 31, "#000000": 7, "#061838": 2 },
+    "backgrounds": { "#FFFFFF": 23, "#E9EEF7": 11, "#1A1552": 9, "#000000": 7, "#0E0A42": 3, "#2E62F5": 2, "#F0F5FD": 2, "#D1DCEB": 1, "#141414": 1, "rgba(255,255,255,0.6)": 1 },
+    "radii": { "10px": 17, "5px": 15, "15px": 13, "8px": 9, "50px": 6, "16px": 6, "50%": 4, "2px": 3 },
+    "shadows": { "0 15px 22px rgba(118,95,184,0.3)": 14, "0 4px 22px rgba(0,0,0,0.25)": 8, "0 4px 30px rgba(0,0,0,0.1)": 1 },
+    "transitions": { "0.5s ease": 75, "0.5s ease-in-out": 63, "0.2s ease-in-out": 22, "0.15s ease-in-out": 9 },
+    "typeStyles": [
+      "H1 Geist 126/126 w300 -1px #FFF (hero display)",
+      "H2 Geist 32/38.4 w500 -1px (section title, centred)",
+      "H3 Geist 24/28.8 w500 (card title)",
+      "H3 Geist 20/24 w600 +0.5px (small card title)",
+      "H2 Geist 18/21.6 w500 +1px UPPERCASE (eyebrow, e.g. 'Top stories')",
+      "P Inter 16/25.6 w400 (body)",
+      "P Geist 20/24 w500 -1px #444C79 (footer column heading)",
+      "Chip Inter 13 w600 on #1A1552, radius 2-5px"
+    ],
+    "buttons": [
+      "dark: Inter 16 w400 #FFF on #000, radius 8px, padding 8px 16px, 46px tall, trailing arrow",
+      "light: Inter 16 w400 #000 on #FFF, radius 8px, padding 8px 16px, 52px tall, trailing arrow",
+      "text link: 16px underlined + arrow ('Read more', 'Learn more')"
+    ],
+    "containers": { "max-width 1700px, padding 12px": 9, "max-width 1600px": 1 },
+    "sections": [
+      "y0     h952  #E9EEF7 pad 10    hero: inset media card, dark overlay, centred H1",
+      "y952   h465  #D1DCEB pad 50    'Top stories' carousel, eyebrow + pager",
+      "y1417  h1124 #FFFFFF pad 75    centred title + lead + 1 CTA, 3 image cards (middle raised)",
+      "y2541  h1067 #000000 pad 75    dark band: centred title + lead, horizontal case-study cards",
+      "y3607  h530  #E9EEF7 pad 0     industries: 4-col underlined link grid",
+      "y4137  h1374 #E9EEF7 pad 0/75  editorial bento: 2-col mixed cards with chips",
+      "y5511  h667  #141414 pad 30    split promo: text left, photo right",
+      "y6177  h493  #FFFFFF pad 50    footer: 4 link columns"
+    ]
+  },
+  "home_1347": { "h1": "94.29px (h1 scales ~7vw)", "h2/h3": "32,24,24,24,24,18,20...", "sectionPadTop": "10,50,75,75,0,0,30" },
+  "services_1800": "Inset hero card with gradient artwork fading to white, breadcrumb top-left, light-weight centred page title at the bottom of the hero; header turns to a frosted bar on scroll; news cards with dark 'Read more' buttons on #E9EEF7."
+}
