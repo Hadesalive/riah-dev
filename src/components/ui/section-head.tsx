@@ -8,7 +8,7 @@ export function SectionHead({
   title,
   lead,
   action,
-  align = "center",
+  align = "start",
   id,
   className = "",
 }: {

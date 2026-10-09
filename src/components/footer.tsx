@@ -18,7 +18,10 @@ const columns = [
       label: s.short,
     })),
   },
-  { title: "Company", links: nav.map((n) => ({ href: n.href, label: n.label })) },
+  {
+    title: "Company",
+    links: nav.map((n) => ({ href: n.href, label: n.label })),
+  },
   {
     title: "Get in touch",
     links: [
@@ -31,9 +34,9 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="tone-dark mt-auto border-t border-(--hairline) bg-night-deep">
+    <footer className="tone-dark flex grow flex-col bg-night-deep">
       <Container>
-        <div className="grid gap-12 py-section lg:grid-cols-[5fr_7fr] lg:gap-16">
+        <div className="grid gap-12 border-t border-(--hairline) py-section lg:grid-cols-[5fr_7fr] lg:gap-16">
           <div>
             <Text size="small">Write to us</Text>
             <a
@@ -68,7 +71,7 @@ export function Footer() {
         </div>
       </Container>
 
-      <div className="border-t border-(--hairline)">
+      <div className="mt-auto border-t border-(--hairline)">
         <Container className="flex flex-col gap-5 py-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-4">
             <Image

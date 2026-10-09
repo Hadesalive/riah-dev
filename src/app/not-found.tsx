@@ -6,7 +6,7 @@ import { Text } from "@/components/ui/text";
 
 export default function NotFound() {
   return (
-    <section className="tone-dark -mt-header flex flex-1 bg-night-deep p-2 lg:p-3">
+    <section className="tone-dark -mt-header flex flex-1 bg-surface p-2 lg:p-3">
       <div className="relative isolate flex w-full items-center overflow-hidden rounded-lg bg-night pt-[calc(var(--spacing-header)+3rem)] pb-section lg:min-h-[70svh]">
         <HeroBackdrop quiet />
         <Container>

@@ -61,7 +61,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <Header />
-        <main id="main" className="flex flex-1 flex-col">
+        <main id="main" className="flex flex-col">
           {children}
         </main>
         <Footer />

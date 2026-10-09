@@ -17,7 +17,7 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="tone-dark -mt-header bg-night-deep p-2 lg:p-3">
+    <section className="tone-dark -mt-header bg-surface p-2 lg:p-3">
       <div className="relative isolate overflow-hidden rounded-lg bg-night pt-[calc(var(--spacing-header)+3rem)] pb-section-sm lg:pt-[calc(var(--spacing-header)+5rem)] lg:pb-section">
         <HeroBackdrop quiet />
         <Container className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">

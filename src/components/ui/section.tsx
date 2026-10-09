@@ -12,7 +12,11 @@ const sizes = {
   sm: "py-section-sm lg:py-section-sm-lg",
 };
 
-/** A full-bleed band. Its tone sets the colours every child reads. */
+/**
+ * A page band. Its tone sets the colours every child reads. Tinted (alt)
+ * bands are inset as rounded panels on white, like the hero card, so colour
+ * arrives in blocks instead of hard full-width edges.
+ */
 export function Section({
   tone = "surface",
   size = "md",
@@ -25,6 +29,15 @@ export function Section({
   size?: keyof typeof sizes;
   width?: "page" | "narrow";
 }) {
+  if (tone === "alt") {
+    return (
+      <section {...props} className={`bg-surface p-2 lg:p-3 ${className}`}>
+        <div className={`rounded-lg ${tones.alt} ${sizes[size]}`}>
+          <Container width={width}>{children}</Container>
+        </div>
+      </section>
+    );
+  }
   return (
     <section {...props} className={`${tones[tone]} ${sizes[size]} ${className}`}>
       <Container width={width}>{children}</Container>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LicensingColumns, ProjectSteps, SectorList } from "@/components/blocks";
 import { ClosingCall } from "@/components/closing-call";
 import { HeroBackdrop } from "@/components/hero-backdrop";
 import { Pictogram } from "@/components/pictogram";
@@ -9,33 +10,9 @@ import { Heading } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
 import { SectionHead } from "@/components/ui/section-head";
 import { Text } from "@/components/ui/text";
-import { licensing, menu, sectors, services } from "@/lib/site";
+import { menu, services } from "@/lib/site";
 
 const headline = ["Networks.", "Servers.", "SMS.", "Payments."];
-
-const steps = [
-  {
-    name: "Audit",
-    detail: "We map what you run today and find where it fails.",
-  },
-  {
-    name: "Design",
-    detail:
-      "Network, servers, integrations and security, planned before anything is bought.",
-  },
-  {
-    name: "Test",
-    detail: "Code review, load and acceptance testing in your real conditions.",
-  },
-  {
-    name: "Deploy",
-    detail: "A staged go-live, hardened servers and handover documents.",
-  },
-  {
-    name: "Support",
-    detail: "Monitoring, licence renewals and someone to call when it breaks.",
-  },
-];
 
 const featured = services.filter(
   (s) => s.id === "network" || s.id === "messaging",
@@ -48,7 +25,7 @@ export default function Home() {
   return (
     <>
       {/* Hero: an inset night card that the header floats over */}
-      <section className="tone-dark -mt-header bg-night-deep p-2 lg:p-3">
+      <section className="tone-dark -mt-header bg-surface p-2 lg:p-3">
         <div className="relative isolate flex min-h-[min(88svh,56rem)] flex-col justify-end overflow-hidden rounded-lg bg-night pt-[calc(var(--spacing-header)+3rem)] pb-section lg:pb-section-lg">
           <HeroBackdrop />
           <Container className="grid items-end gap-12 lg:grid-cols-[7fr_5fr] lg:gap-12">
@@ -135,47 +112,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sectors */}
-      <Section aria-labelledby="sectors-title">
-        <SectionHead
-          id="sectors-title"
-          title="Who we work for"
-          lead="Most of our clients work with unreliable power and patchy connections, so that is what we design for."
-        />
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:gap-6">
-          {sectors.map((s) => (
-            <CardLink
-              key={s.id}
-              href={`/industries#${s.id}`}
-              className="sm:flex-row sm:gap-6"
-            >
-              <Pictogram
-                name={s.pictogram}
-                className="size-16 shrink-0 sm:size-20"
-              />
-              <div className="mt-5 sm:mt-0">
-                <Heading as="h3" size="h3">
-                  {s.name}
-                </Heading>
-                <Text className="mt-2">{s.need}</Text>
-                <ul
-                  className="mt-5 flex flex-wrap gap-2"
-                  aria-label="Services they use"
-                >
-                  {s.uses.map((u) => (
-                    <li
-                      key={u}
-                      className="rounded-xs bg-surface-alt px-2.5 py-1 text-caption text-fg"
-                    >
-                      {u}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </CardLink>
-          ))}
-        </div>
-      </Section>
+      <SectorList />
 
       {/* Services */}
       <Section tone="alt" aria-labelledby="services-title">
@@ -256,66 +193,9 @@ export default function Home() {
         </ul>
       </Section>
 
-      {/* How a project runs */}
-      <Section tone="night" aria-labelledby="steps-title">
-        <SectionHead
-          id="steps-title"
-          eyebrow="How we work"
-          title="How a project runs"
-        />
-        <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {steps.map((step, i) => (
-            <li key={step.name}>
-              <Card look="glass" className="h-full p-6 sm:p-6">
-                <span className="font-heading text-h2 text-fg-inverse-muted tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <Heading as="h3" size="h4" className="mt-6">
-                  {step.name}
-                </Heading>
-                <Text size="small" className="mt-2">
-                  {step.detail}
-                </Text>
-              </Card>
-            </li>
-          ))}
-        </ol>
-      </Section>
+      <ProjectSteps />
 
-      {/* Licensing */}
-      <Section aria-labelledby="licensing-title">
-        <SectionHead
-          id="licensing-title"
-          align="split"
-          eyebrow="Licensing"
-          title="We also supply the software"
-          lead="We install and renew every licence we sell."
-          action={<Button href="/licensing">See licensing</Button>}
-        />
-        <ul className="mt-12 grid gap-4 md:grid-cols-3 lg:gap-6">
-          {licensing.map((l) => (
-            <li key={l.product}>
-              <Card className="h-full">
-                <Pictogram name={l.pictogram} className="size-12" />
-                <Heading as="h3" size="h4" className="mt-5">
-                  {l.short}
-                </Heading>
-                <Text
-                  as="span"
-                  size="caption"
-                  tone="subtle"
-                  className="mt-1 uppercase tracking-wide"
-                >
-                  Supplied and installed
-                </Text>
-                <Text size="small" className="mt-3">
-                  {l.fit}
-                </Text>
-              </Card>
-            </li>
-          ))}
-        </ul>
-      </Section>
+      <LicensingColumns />
 
       <ClosingCall />
     </>

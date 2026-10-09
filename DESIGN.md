@@ -102,9 +102,13 @@ How we got here: `docs/design-dna.md` (study of infosys.com's structure) and
 ## Overview
 
 A calm, corporate engineering firm. Every page opens on an inset night-navy
-card over a dusk photo of Freetown. Below it, full-bleed bands alternate
-white, pale blue-grey and navy. Each band follows the same recipe: optional
-eyebrow, then title, then one-line lead, then at most one action, then a grid.
+card over a dusk photo of Freetown. Below it, white sections alternate with
+rounded inset panels (pale blue or navy) that echo the hero card, so colour
+arrives in soft blocks rather than hard full-width edges. The page ends on a
+navy sheet with rounded top corners that runs into the all-navy footer.
+Headings are left-aligned. Each section has its own shape (split list,
+timeline, ruled columns, cards) so a page reads as a sequence, not a stack of
+identical grids.
 Colour is restrained. Blue tints the neutrals and marks links. Sign yellow is
 a single spark per page. The brand's personality now lives in the flat
 pictograms, not in painted fields.
@@ -141,10 +145,12 @@ pictograms, not in painted fields.
 ## Layout
 
 - `Container`: 1280px, with 16 / 24 / 32px gutters. `narrow` is 768px.
-- `Section`: full-bleed band, 64px vertical padding (96px at lg and up), or
-  48 / 64px for `size="sm"`.
-- Detail sections use a 5/7 split (text left, list or cards right). Overview
-  sections use a centred `SectionHead`.
+- `Section`: a band with 64px vertical padding (96px at lg and up), or
+  48 / 64px for `size="sm"`. `tone="alt"` renders as a rounded pale-blue panel
+  inset 8 / 12px from the page edge. Never put two panels next to each other.
+- Detail sections use a 5/7 split (text left and sticky, list right).
+  `SectionHead` is left-aligned (`start`) or `split` (title left, lead right).
+  Avoid centred heads.
 - Grids: 1 column, then 2 from 640, then 3 or 4 from 1024. Gaps are 16px,
   24px at lg.
 - Heroes: an inset rounded `lg` card inside an 8 / 12px `night-deep` frame.
@@ -161,7 +167,12 @@ pictograms, not in painted fields.
 - **PageHero:** eyebrow, `h1` at weight 300, lead, optional pictogram, over a
   dimmed version of the hero photo.
 - **SubNav:** sticky frosted strip of in-page jump links under the header.
-- **ClosingCall:** a `night-deep` band with one white solid action.
+- **ClosingCall:** a `night-deep` sheet with rounded top corners and one white
+  solid action. It runs straight into the navy footer.
+- **Shared blocks** (`src/components/blocks.tsx`): `ProjectSteps` (a numbered
+  timeline on a navy panel), `SectorList` (a split list), `ServiceCards`
+  (card grid) and `LicensingColumns` (ruled columns). Reuse them to give thin
+  pages more to say without new copy.
 - **Pictogram:** flat, slate-outlined icons. They're the brand's main colour
   carrier now.
 

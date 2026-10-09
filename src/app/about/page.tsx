@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
+import { ProjectSteps, SectorList, ServiceCards } from "@/components/blocks";
 import { ClosingCall } from "@/components/closing-call";
 import { PageHero } from "@/components/page-hero";
 import { Pictogram, type PictogramName } from "@/components/pictogram";
@@ -75,6 +76,12 @@ export default function AboutPage() {
           ))}
         </ul>
       </Section>
+
+      <ProjectSteps />
+
+      <SectorList />
+
+      <ServiceCards />
 
       <ClosingCall />
     </>

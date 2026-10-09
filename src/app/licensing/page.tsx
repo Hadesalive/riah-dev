@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
+import { SectorList, ServiceCards } from "@/components/blocks";
 import { ClosingCall } from "@/components/closing-call";
 import { PageHero } from "@/components/page-hero";
 import { Pictogram } from "@/components/pictogram";
@@ -21,8 +22,8 @@ export default function LicensingPage() {
     <>
       <PageHero eyebrow="Licensing" title="Software & licences" pictogram="key">
         <p>
-          We supply the licences and set up the products, so the people who
-          sell them to you are the people who install and renew them.
+          We supply the licences and set up the products, so the people who sell
+          them to you are the people who install and renew them.
         </p>
       </PageHero>
 
@@ -45,6 +46,10 @@ export default function LicensingPage() {
           Ask for a quote that combines licences with installation and support.
         </Text>
       </Section>
+
+      <ServiceCards except={["licensing"]} tone="surface" />
+
+      <SectorList tone="alt" />
 
       <ClosingCall />
     </>

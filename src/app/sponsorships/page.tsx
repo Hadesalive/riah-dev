@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
+import { SectorList } from "@/components/blocks";
+import { ClosingCall } from "@/components/closing-call";
 import { PageHero } from "@/components/page-hero";
 import { Pictogram, type PictogramName } from "@/components/pictogram";
 import { Button } from "@/components/ui/button";
@@ -87,6 +89,10 @@ export default function SponsorshipsPage() {
           ))}
         </ul>
       </Section>
+
+      <SectorList />
+
+      <ClosingCall />
     </>
   );
 }

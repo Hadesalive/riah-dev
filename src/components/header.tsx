@@ -30,7 +30,11 @@ export function Header() {
         clear ? "bg-transparent" : "bg-night/85 shadow-sm backdrop-blur-md"
       }`}
     >
-      <div className="mx-auto flex h-header max-w-page items-center justify-between gap-6 px-gutter sm:px-gutter-sm lg:px-gutter-lg">
+      <div
+        className={`mx-auto flex h-header max-w-page items-center justify-between gap-6 px-gutter transition-transform duration-(--duration-base) ease-(--ease-out) sm:px-gutter-sm lg:px-gutter-lg ${
+          clear ? "translate-y-2 lg:translate-y-4" : ""
+        }`}
+      >
         <Link href="/" className="shrink-0" aria-label="RIAH SL home">
           <Image
             src="/brand/riah-logo-mono-white.svg"

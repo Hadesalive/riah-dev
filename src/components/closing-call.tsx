@@ -5,7 +5,7 @@ import { SectionHead } from "./ui/section-head";
 
 export function ClosingCall() {
   return (
-    <Section tone="deep" aria-labelledby="closing-title">
+    <Section tone="deep" aria-labelledby="closing-title" className="rounded-t-[2rem] lg:rounded-t-[3rem]">
       <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
         <SectionHead
           id="closing-title"

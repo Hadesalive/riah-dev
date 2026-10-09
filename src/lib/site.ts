@@ -263,3 +263,28 @@ export const sectors: {
     uses: ["Campus Wi-Fi", "Waka TV", "Starlink + fibre"],
   },
 ];
+
+/** How every project runs, from first look to support */
+export const steps = [
+  {
+    name: "Audit",
+    detail: "We map what you run today and find where it fails.",
+  },
+  {
+    name: "Design",
+    detail:
+      "Network, servers, integrations and security, planned before anything is bought.",
+  },
+  {
+    name: "Test",
+    detail: "Code review, load and acceptance testing in your real conditions.",
+  },
+  {
+    name: "Deploy",
+    detail: "A staged go-live, hardened servers and handover documents.",
+  },
+  {
+    name: "Support",
+    detail: "Monitoring, licence renewals and someone to call when it breaks.",
+  },
+];

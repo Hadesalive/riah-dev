@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { Suspense } from "react";
 import { ContactForm, TopicAwareContactForm } from "@/components/contact-form";
+import { ProjectSteps } from "@/components/blocks";
 import { PageHero } from "@/components/page-hero";
 import { Card } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
@@ -23,14 +24,18 @@ const emails = [
 export default function ContactPage() {
   return (
     <>
-      <PageHero eyebrow="Contact" title="Request a technical consultation" pictogram="sms">
+      <PageHero
+        eyebrow="Contact"
+        title="Request a technical consultation"
+        pictogram="sms"
+      >
         <p>
           Tell us what you run today and what you need. The more detail you
           give, the more useful our first reply will be.
         </p>
       </PageHero>
 
-      <Section tone="alt" className="flex-1">
+      <Section tone="alt">
         <div className="grid gap-10 lg:grid-cols-[4fr_8fr] lg:gap-12">
           <dl className="space-y-8">
             {emails.map((e) => (
@@ -50,13 +55,19 @@ export default function ContactPage() {
             ))}
           </dl>
 
-          <Card as="section" aria-label="Consultation request form" className="shadow-md">
+          <Card
+            as="section"
+            aria-label="Consultation request form"
+            className="shadow-md"
+          >
             <Suspense fallback={<ContactForm />}>
               <TopicAwareContactForm />
             </Suspense>
           </Card>
         </div>
       </Section>
+
+      <ProjectSteps />
     </>
   );
 }
