@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { Suspense } from "react";
 import { ContactForm, TopicAwareContactForm } from "@/components/contact-form";
-import { Pictogram } from "@/components/pictogram";
+import { PageHero } from "@/components/page-hero";
+import { Card } from "@/components/ui/card";
+import { Section } from "@/components/ui/section";
+import { Text } from "@/components/ui/text";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -12,49 +15,48 @@ export const metadata: Metadata = pageMetadata({
   path: "/contact",
 });
 
+const emails = [
+  { label: "New projects", address: site.email },
+  { label: "Existing clients", address: site.supportEmail },
+];
+
 export default function ContactPage() {
   return (
-    <div className="flex-1 bg-kiosk-deep px-3 py-3 sm:px-4 sm:py-4">
-      <div className="mx-auto grid max-w-7xl gap-3 sm:gap-4 lg:grid-cols-[5fr_7fr]">
-        <section className="board bg-kiosk p-8 text-white sm:p-12 [--pin:color-mix(in_srgb,#fff_50%,transparent)]">
-          <Pictogram name="sms" className="size-24" />
-          <h1 className="sign shade brush-in mt-6 text-sign-md text-sign">
-            Request a technical consultation
-          </h1>
-          <p className="mt-5 max-w-md text-lg leading-relaxed">
-            Tell us what you run today and what you need. The more detail you
-            give, the more useful our first reply will be.
-          </p>
+    <>
+      <PageHero eyebrow="Contact" title="Request a technical consultation" pictogram="sms">
+        <p>
+          Tell us what you run today and what you need. The more detail you
+          give, the more useful our first reply will be.
+        </p>
+      </PageHero>
 
-          <dl className="mt-10 space-y-6">
-            <div>
-              <dt className="font-bold text-blue-100">New projects</dt>
-              <dd>
-                <a href={`mailto:${site.email}`} className="text-2xl font-bold text-white underline decoration-sign decoration-2 underline-offset-4 hover:text-sign">
-                  {site.email}
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="font-bold text-blue-100">Existing clients</dt>
-              <dd>
-                <a href={`mailto:${site.supportEmail}`} className="text-2xl font-bold text-white underline decoration-sign decoration-2 underline-offset-4 hover:text-sign">
-                  {site.supportEmail}
-                </a>
-              </dd>
-            </div>
+      <Section tone="alt" className="flex-1">
+        <div className="grid gap-10 lg:grid-cols-[4fr_8fr] lg:gap-12">
+          <dl className="space-y-8">
+            {emails.map((e) => (
+              <div key={e.address}>
+                <Text as="dt" size="small">
+                  {e.label}
+                </Text>
+                <dd className="mt-1">
+                  <a
+                    href={`mailto:${e.address}`}
+                    className="font-heading text-h3 break-all text-fg underline decoration-line decoration-1 underline-offset-[6px] transition-colors duration-(--duration-fast) hover:decoration-accent"
+                  >
+                    {e.address}
+                  </a>
+                </dd>
+              </div>
+            ))}
           </dl>
-        </section>
 
-        <section
-          aria-label="Consultation request form"
-          className="board bg-white p-7 text-ink sm:p-12 [--pin:color-mix(in_srgb,var(--color-kiosk)_25%,transparent)]"
-        >
-          <Suspense fallback={<ContactForm />}>
-            <TopicAwareContactForm />
-          </Suspense>
-        </section>
-      </div>
-    </div>
+          <Card as="section" aria-label="Consultation request form" className="shadow-md">
+            <Suspense fallback={<ContactForm />}>
+              <TopicAwareContactForm />
+            </Suspense>
+          </Card>
+        </div>
+      </Section>
+    </>
   );
 }

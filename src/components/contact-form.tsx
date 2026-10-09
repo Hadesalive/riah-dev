@@ -13,7 +13,8 @@ type Status =
   | { state: "error"; message: string };
 
 const field =
-  "mt-2 block w-full rounded-md border-2 border-ink/25 bg-wall px-4 py-3 text-base font-normal text-ink placeholder:text-ink-soft/60 focus:border-kiosk focus:bg-white focus:shadow-none focus:outline-3 focus:outline-offset-0 focus:outline-kiosk/30";
+  "mt-2 block min-h-12 w-full rounded-sm bg-surface px-4 py-3 text-body font-normal text-fg ring-1 ring-line placeholder:text-fg-subtle focus:shadow-none focus:outline-3 focus:outline-offset-0 focus:outline-accent/30 focus:ring-accent";
+const label = "text-small font-semibold text-fg";
 
 /** Reads ?topic= so links like "Discuss a sponsorship" preselect the service. */
 export function TopicAwareContactForm() {
@@ -64,18 +65,18 @@ export function ContactForm({ initialTopic = "" }: { initialTopic?: string }) {
   if (status.state === "sent") {
     return (
       <div role="status" className="py-6">
-        <span className="flex size-14 items-center justify-center rounded-full bg-money" aria-hidden="true">
-          <svg viewBox="0 0 24 24" className="size-8"><path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="#0f172a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        <span className="flex size-14 items-center justify-center rounded-full bg-surface-alt" aria-hidden="true">
+          <svg viewBox="0 0 24 24" className="size-8 text-accent-strong"><path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </span>
-        <h2 className="sign mt-6 text-3xl">Message sent</h2>
-        <p className="mt-2 text-ink-soft">
+        <h2 className="mt-6 font-heading text-h3 text-fg">Message sent</h2>
+        <p className="mt-2 text-fg-muted">
           We&apos;ll reply to the email address you gave us. If it&apos;s
           urgent, write to {site.supportEmail}.
         </p>
         <button
           type="button"
           onClick={() => setStatus({ state: "idle" })}
-          className="mt-6 font-bold text-kiosk-ink underline decoration-2 underline-offset-4"
+          className="mt-6 font-semibold text-accent-strong underline decoration-1 underline-offset-4 hover:decoration-2"
         >
           Send another message
         </button>
@@ -88,11 +89,11 @@ export function ContactForm({ initialTopic = "" }: { initialTopic?: string }) {
       {/* Honeypot for bots */}
       <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} aria-hidden="true" />
 
-      <label className="font-bold">
+      <label className={label}>
         Full name
         <input name="name" required autoComplete="name" className={field} />
       </label>
-      <label className="font-bold">
+      <label className={label}>
         Organisation
         <input
           name="organisation"
@@ -101,15 +102,15 @@ export function ContactForm({ initialTopic = "" }: { initialTopic?: string }) {
           className={field}
         />
       </label>
-      <label className="font-bold">
+      <label className={label}>
         Email
         <input name="email" type="email" required autoComplete="email" className={field} />
       </label>
-      <label className="font-bold">
-        Phone <span className="font-normal text-ink-soft">(optional)</span>
+      <label className={label}>
+        Phone <span className="font-normal text-fg-muted">(optional)</span>
         <input name="phone" type="tel" autoComplete="tel" className={field} />
       </label>
-      <label className="font-bold sm:col-span-2">
+      <label className={`${label} sm:col-span-2`}>
         What do you need help with?
         <select name="service" required defaultValue={initialTopic} className={field}>
           <option value="" disabled>
@@ -120,7 +121,7 @@ export function ContactForm({ initialTopic = "" }: { initialTopic?: string }) {
           ))}
         </select>
       </label>
-      <label className="font-bold sm:col-span-2">
+      <label className={`${label} sm:col-span-2`}>
         Project scope
         <textarea
           name="message"
@@ -135,12 +136,12 @@ export function ContactForm({ initialTopic = "" }: { initialTopic?: string }) {
         <button
           type="submit"
           disabled={status.state === "sending"}
-          className="inline-flex min-h-14 items-center rounded-md bg-sign px-8 text-lg font-bold text-ink border-2 border-ink transition-colors hover:bg-[#fde047] active:bg-sign-deep disabled:opacity-60"
+          className="inline-flex min-h-13 items-center rounded-sm bg-signal px-6 text-body font-semibold text-fg transition-colors duration-(--duration-fast) hover:bg-signal-hover disabled:opacity-60"
         >
           {status.state === "sending" ? "Sending…" : "Send message"}
         </button>
         {status.state === "error" && (
-          <p role="alert" className="max-w-md rounded-md bg-red-50 px-4 py-3 font-semibold text-red-800">
+          <p role="alert" className="max-w-md rounded-sm bg-red-50 px-4 py-3 text-small font-semibold text-red-800 ring-1 ring-red-200">
             {status.message}
           </p>
         )}
