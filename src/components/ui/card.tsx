@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ComponentProps } from "react";
+import type { ComponentProps, ElementType } from "react";
 
 const base = "flex flex-col rounded-md p-6 sm:p-8";
 const looks = {
@@ -12,11 +12,12 @@ const lift =
   "transition-[translate,box-shadow] duration-(--duration-fast) ease-(--ease-out) hover:-translate-y-1 hover:shadow-md";
 
 export function Card({
+  as: Tag = "div",
   look = "surface",
   className = "",
   ...props
-}: ComponentProps<"div"> & { look?: keyof typeof looks }) {
-  return <div {...props} className={`${base} ${looks[look]} ${className}`} />;
+}: ComponentProps<"div"> & { as?: ElementType; look?: keyof typeof looks }) {
+  return <Tag {...props} className={`${base} ${looks[look]} ${className}`} />;
 }
 
 /** A whole card that is one link. */

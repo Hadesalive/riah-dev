@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { ClosingCall } from "@/components/closing-call";
+import { PageHero } from "@/components/page-hero";
 import { Pictogram, type PictogramName } from "@/components/pictogram";
-import { SignBand } from "@/components/sign-band";
+import { Card } from "@/components/ui/card";
+import { Heading } from "@/components/ui/heading";
+import { Section } from "@/components/ui/section";
+import { SectionHead } from "@/components/ui/section-head";
+import { Text } from "@/components/ui/text";
 
 export const metadata: Metadata = pageMetadata({
   title: "About us: IT engineers in Sierra Leone",
@@ -37,34 +42,36 @@ const capabilities: { name: string; pictogram: PictogramName; body: string }[] =
 export default function AboutPage() {
   return (
     <>
-      <SignBand title="Engineers, based in Sierra Leone" pictogram="globe">
+      <PageHero eyebrow="About" title="Engineers, based in Sierra Leone" pictogram="globe">
         <p>
           RIAH SL Limited works on networks, Linux servers, software testing
           and deployment, RapidPro SMS, Monime payments and DHIS2.
         </p>
-      </SignBand>
+      </PageHero>
 
-      <section className="mx-auto grid w-full max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[5fr_7fr] lg:gap-16 lg:px-8 lg:py-28">
-        <div>
-          <h2 className="sign shade text-sign-lg [--shade:var(--color-sign)]">How we work</h2>
-          <p className="mt-6 max-w-md text-xl leading-relaxed text-ink-soft">
-            We design for limited bandwidth and unreliable power, and we hand
-            over systems your own team can run after we leave.
-          </p>
+      <Section aria-labelledby="how-title">
+        <div className="grid gap-12 lg:grid-cols-[5fr_7fr] lg:gap-16">
+          <SectionHead
+            id="how-title"
+            align="start"
+            title="How we work"
+            lead="We design for limited bandwidth and unreliable power, and we hand over systems your own team can run after we leave."
+          />
+          <ul className="grid gap-4 sm:grid-cols-2 lg:gap-6">
+            {capabilities.map((c) => (
+              <li key={c.name}>
+                <Card className="h-full">
+                  <Pictogram name={c.pictogram} className="size-14" />
+                  <Heading as="h3" size="h4" className="mt-5">
+                    {c.name}
+                  </Heading>
+                  <Text className="mt-2">{c.body}</Text>
+                </Card>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="grid gap-4 sm:grid-cols-2">
-          {capabilities.map((c) => (
-            <li
-              key={c.name}
-              className="board bg-white p-7 [--pin:color-mix(in_srgb,var(--color-kiosk)_25%,transparent)]"
-            >
-              <Pictogram name={c.pictogram} className="size-16" />
-              <h3 className="mt-5 text-xl leading-snug font-bold">{c.name}</h3>
-              <p className="mt-2 text-ink-soft">{c.body}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
+      </Section>
 
       <ClosingCall />
     </>

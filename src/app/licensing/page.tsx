@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { ClosingCall } from "@/components/closing-call";
+import { PageHero } from "@/components/page-hero";
 import { Pictogram } from "@/components/pictogram";
-import { SignBand } from "@/components/sign-band";
+import { Card } from "@/components/ui/card";
+import { Eyebrow, Heading } from "@/components/ui/heading";
+import { Section } from "@/components/ui/section";
+import { Text } from "@/components/ui/text";
 import { licensing } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -12,41 +16,35 @@ export const metadata: Metadata = pageMetadata({
   path: "/licensing",
 });
 
-const paint = [
-  "bg-sign text-ink [--pin:color-mix(in_srgb,#0f172a_30%,transparent)]",
-  "bg-ink text-white [--pin:color-mix(in_srgb,#facc15_45%,transparent)]",
-  "bg-money text-ink [--pin:color-mix(in_srgb,#0f172a_30%,transparent)]",
-];
-
 export default function LicensingPage() {
   return (
     <>
-      <SignBand title="Software & licences" pictogram="key">
+      <PageHero eyebrow="Licensing" title="Software & licences" pictogram="key">
         <p>
           We supply the licences and set up the products, so the people who
           sell them to you are the people who install and renew them.
         </p>
-      </SignBand>
+      </PageHero>
 
-      <div className="mx-auto grid w-full max-w-7xl gap-4 px-3 py-4 sm:px-4 lg:grid-cols-3">
-        {licensing.map((row, i) => (
-          <article
-            key={row.product}
-            className={`board flex flex-col p-8 sm:p-10 ${paint[i]}`}
-          >
-            <Pictogram name={row.pictogram} className="size-24 drop-shadow-[0_8px_10px_rgba(15,23,42,0.3)]" />
-            <h2 className="sign mt-6 text-3xl leading-tight">{row.product}</h2>
-            <h3 className="mt-6 font-bold">What we do</h3>
-            <p className="mt-1 text-lg leading-relaxed">{row.services}</p>
-            <h3 className="mt-6 font-bold">Suited to</h3>
-            <p className="mt-1 text-lg leading-relaxed">{row.fit}</p>
-          </article>
-        ))}
-      </div>
-
-      <p className="mx-auto w-full max-w-7xl px-4 pt-4 pb-10 text-lg font-medium text-ink-soft sm:px-6 lg:px-8">
-        Ask for a quote that combines licences with installation and support.
-      </p>
+      <Section tone="alt">
+        <div className="grid gap-4 lg:grid-cols-3 lg:gap-6">
+          {licensing.map((row) => (
+            <Card key={row.product} as="article" className="shadow-md">
+              <Pictogram name={row.pictogram} className="size-16" />
+              <Heading as="h2" size="h3" className="mt-6">
+                {row.product}
+              </Heading>
+              <Eyebrow className="mt-6">What we do</Eyebrow>
+              <Text className="mt-2">{row.services}</Text>
+              <Eyebrow className="mt-6">Suited to</Eyebrow>
+              <Text className="mt-2">{row.fit}</Text>
+            </Card>
+          ))}
+        </div>
+        <Text size="lead" className="mt-10">
+          Ask for a quote that combines licences with installation and support.
+        </Text>
+      </Section>
 
       <ClosingCall />
     </>

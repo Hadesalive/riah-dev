@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
-import { ButtonLink } from "@/components/button";
+import { PageHero } from "@/components/page-hero";
 import { Pictogram, type PictogramName } from "@/components/pictogram";
-import { SignBand } from "@/components/sign-band";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Heading } from "@/components/ui/heading";
+import { Section } from "@/components/ui/section";
+import { SectionHead } from "@/components/ui/section-head";
+import { Text } from "@/components/ui/text";
 
 export const metadata: Metadata = pageMetadata({
   title: "Global exchange & sponsorships",
@@ -32,50 +37,54 @@ const value: { name: string; pictogram: PictogramName; body: string }[] = [
 export default function SponsorshipsPage() {
   return (
     <>
-      <SignBand title="Global exchange & sponsorships" pictogram="globe">
+      <PageHero eyebrow="Global exchange" title="Global exchange & sponsorships" pictogram="globe">
         <p>
           We take part in international ICT forums, health information system
           convenings, developer summits and technical working groups.
         </p>
-      </SignBand>
+      </PageHero>
 
-      <div className="mx-auto grid w-full max-w-7xl gap-4 px-3 py-4 sm:px-4 lg:grid-cols-[7fr_5fr]">
-        <section className="board bg-ink p-8 text-white sm:p-12 [--pin:color-mix(in_srgb,#fff_30%,transparent)]">
-          <h2 className="sign text-sign-md text-white">How sponsors help</h2>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-200">
-            Development partners, technology vendors and grant-making
-            institutions help our team attend these events.
-          </p>
-        </section>
-        <section className="board bg-sign p-8 text-ink sm:p-12 [--pin:color-mix(in_srgb,#0f172a_30%,transparent)]">
-          <h2 className="sign text-2xl">Our main funding need</h2>
-          <p className="mt-4 text-lg leading-relaxed font-medium">
-            Travel, accommodation and registration. Covering these is usually
-            what decides whether our team can attend.
-          </p>
-        </section>
-      </div>
-
-      <section className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <h2 className="sign shade text-sign-lg [--shade:var(--color-money)]">What partners get</h2>
-          <ButtonLink href="/contact?topic=sponsorship" size="lg">
-            Discuss a sponsorship
-          </ButtonLink>
+      <Section aria-labelledby="help-title">
+        <div className="grid items-start gap-10 lg:grid-cols-[7fr_5fr] lg:gap-16">
+          <SectionHead
+            id="help-title"
+            align="start"
+            title="How sponsors help"
+            lead="Development partners, technology vendors and grant-making institutions help our team attend these events."
+          />
+          <Card className="border-t-4 border-t-accent shadow-md">
+            <Heading as="h2" size="h3">
+              Our main funding need
+            </Heading>
+            <Text className="mt-3">
+              Travel, accommodation and registration. Covering these is usually
+              what decides whether our team can attend.
+            </Text>
+          </Card>
         </div>
-        <ul className="mt-12 grid gap-4 md:grid-cols-3">
+      </Section>
+
+      <Section tone="alt" aria-labelledby="partners-title">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <Heading id="partners-title">What partners get</Heading>
+          <Button href="/contact?topic=sponsorship" variant="signal" size="lg">
+            Discuss a sponsorship
+          </Button>
+        </div>
+        <ul className="mt-12 grid gap-4 md:grid-cols-3 lg:gap-6">
           {value.map((v) => (
-            <li
-              key={v.name}
-              className="board bg-white p-8 [--pin:color-mix(in_srgb,var(--color-kiosk)_25%,transparent)]"
-            >
-              <Pictogram name={v.pictogram} className="size-16" />
-              <h3 className="mt-5 text-xl font-bold">{v.name}</h3>
-              <p className="mt-2 leading-relaxed text-ink-soft">{v.body}</p>
+            <li key={v.name}>
+              <Card className="h-full">
+                <Pictogram name={v.pictogram} className="size-14" />
+                <Heading as="h3" size="h4" className="mt-5">
+                  {v.name}
+                </Heading>
+                <Text className="mt-2">{v.body}</Text>
+              </Card>
             </li>
           ))}
         </ul>
-      </section>
+      </Section>
     </>
   );
 }
