@@ -1,25 +1,33 @@
-import { ButtonLink } from "@/components/button";
+import { HeroBackdrop } from "@/components/hero-backdrop";
 import { Pictogram } from "@/components/pictogram";
+import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { Text } from "@/components/ui/text";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-1 bg-kiosk-deep px-3 py-3 sm:px-4 sm:py-4">
-      <section className="board mx-auto flex w-full max-w-7xl flex-col justify-center bg-ink px-8 py-20 text-white sm:px-14 sm:py-28 [--pin:color-mix(in_srgb,#facc15_45%,transparent)]">
-        <Pictogram name="network" className="size-24 opacity-90" />
-        <h1 className="sign shade mt-8 max-w-3xl text-sign-lg text-sign [--shade:#000]">
-          Sorry, this page is not on our network.
-        </h1>
-        <p className="mt-6 max-w-xl text-xl leading-relaxed text-slate-200">
-          The link may be old or mistyped. Start from the home page or go
-          straight to our services.
-        </p>
-        <div className="mt-10 flex flex-wrap gap-3">
-          <ButtonLink href="/" size="lg">Go to the home page</ButtonLink>
-          <ButtonLink href="/services" variant="outline-light" size="lg">
-            See services
-          </ButtonLink>
-        </div>
-      </section>
-    </div>
+    <section className="tone-dark -mt-header flex flex-1 bg-night-deep p-2 lg:p-3">
+      <div className="relative isolate flex w-full items-center overflow-hidden rounded-lg bg-night pt-[calc(var(--spacing-header)+3rem)] pb-section lg:min-h-[70svh]">
+        <HeroBackdrop quiet />
+        <Container>
+          <Pictogram name="network" className="size-20" />
+          <h1 className="mt-8 max-w-3xl font-heading text-h1 text-fg-inverse">
+            Sorry, this page is not on our network.
+          </h1>
+          <Text size="lead" className="mt-6 max-w-measure">
+            The link may be old or mistyped. Start from the home page or go
+            straight to our services.
+          </Text>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Button href="/" variant="signal" size="lg">
+              Go to the home page
+            </Button>
+            <Button href="/services" variant="outline" size="lg">
+              See services
+            </Button>
+          </div>
+        </Container>
+      </div>
+    </section>
   );
 }
