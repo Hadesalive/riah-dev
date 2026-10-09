@@ -1,0 +1,138 @@
+/*
+  RIAH design tokens. The single source for colour, type, spacing, radius,
+  elevation and motion (see docs/design-dna.md). Components read these
+  through Tailwind utilities (bg-surface-alt, text-h2, rounded-md, ...) or,
+  for tone-aware colour, through the --fg/--bg variables set by .tone-*.
+*/
+@theme {
+  /* Neutrals, tinted with the kiosk blue */
+  --color-fg: #0f172a;
+  --color-fg-muted: #475569;
+  --color-fg-subtle: #56657c;
+  --color-fg-inverse: #ffffff;
+  --color-fg-inverse-muted: #cbd5e1;
+  --color-surface: #ffffff;
+  --color-surface-alt: #eaf0fb;
+  --color-surface-strong: #d6e0f2;
+  --color-line: #d6e0f2;
+  --color-night: #0b1733;
+  --color-night-deep: #070f24;
+
+  /* Accents: blue for links and focus, yellow as a single spark */
+  --color-accent: #2563eb;
+  --color-accent-strong: #1d4ed8;
+  --color-signal: #facc15;
+  --color-signal-hover: #fde047;
+
+  --font-heading: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+
+  /* Type scale: weight carries the hierarchy more than size */
+  --text-display: clamp(2.75rem, 7vw, 6.5rem);
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.03em;
+  --text-display--font-weight: 300;
+  --text-h1: clamp(2.25rem, 5vw, 4rem);
+  --text-h1--line-height: 1.05;
+  --text-h1--letter-spacing: -0.025em;
+  --text-h1--font-weight: 300;
+  --text-h2: clamp(1.75rem, 2.6vw, 2.25rem);
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h2--font-weight: 500;
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.01em;
+  --text-h3--font-weight: 500;
+  --text-h4: 1.25rem;
+  --text-h4--line-height: 1.25;
+  --text-h4--font-weight: 600;
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.08em;
+  --text-eyebrow--font-weight: 600;
+  --text-lead: 1.25rem;
+  --text-lead--line-height: 1.5;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.6;
+  --text-small: 0.9375rem;
+  --text-small--line-height: 1.5;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.4;
+  --text-caption--font-weight: 600;
+
+  /* Layout (spacing itself is Tailwind's 4px base: 2 = 8px, 6 = 24px ...) */
+  --container-page: 80rem;
+  --container-narrow: 48rem;
+  --container-measure: 38rem;
+  --spacing-gutter: 1rem;
+  --spacing-gutter-sm: 1.5rem;
+  --spacing-gutter-lg: 2rem;
+  --spacing-section: 4rem;
+  --spacing-section-lg: 6rem;
+  --spacing-section-sm: 3rem;
+  --spacing-section-sm-lg: 4rem;
+  --spacing-header: 4.5rem;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 4px 20px rgb(15 23 42 / 0.12);
+  --shadow-md: 0 16px 32px -12px rgb(37 99 235 / 0.25);
+
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 400ms;
+}
+
+/* Tone: what a band paints underneath, and what text and buttons sit on it */
+@layer base {
+  .tone-light {
+    --bg: var(--color-surface);
+    --fg: var(--color-fg);
+    --fg-muted: var(--color-fg-muted);
+    --fg-subtle: var(--color-fg-subtle);
+    --link: var(--color-accent-strong);
+    --hairline: var(--color-line);
+    --solid-bg: var(--color-fg);
+    --solid-fg: var(--color-fg-inverse);
+    --solid-hover: #1e293b;
+    color: var(--fg);
+  }
+  .tone-alt {
+    --bg: var(--color-surface-alt);
+  }
+  .tone-dark {
+    --bg: var(--color-night);
+    --fg: var(--color-fg-inverse);
+    --fg-muted: var(--color-fg-inverse-muted);
+    --fg-subtle: #94a3b8;
+    --link: #93c5fd;
+    --hairline: rgb(255 255 255 / 0.12);
+    --solid-bg: var(--color-fg-inverse);
+    --solid-fg: var(--color-fg);
+    --solid-hover: #e2e8f0;
+    color: var(--fg);
+  }
+  .tone-deep {
+    --bg: var(--color-night-deep);
+  }
+}
+
+/* Content rises in once; nothing bounces */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+.rise {
+  animation: rise var(--duration-base) var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+}

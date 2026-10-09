@@ -1,48 +1,75 @@
 import Image from "next/image";
 import Link from "next/link";
-import { nav, site } from "@/lib/site";
+import { nav, services, site } from "@/lib/site";
+import { Container } from "./ui/container";
+import { Heading } from "./ui/heading";
+import { Text } from "./ui/text";
 
 const legal = [
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
 ];
 
+const columns = [
+  {
+    title: "Services",
+    links: services.map((s) => ({
+      href: s.id === "licensing" ? "/licensing" : `/services#${s.id}`,
+      label: s.short,
+    })),
+  },
+  { title: "Company", links: nav.map((n) => ({ href: n.href, label: n.label })) },
+  {
+    title: "Get in touch",
+    links: [
+      { href: `mailto:${site.email}`, label: site.email },
+      { href: `mailto:${site.supportEmail}`, label: site.supportEmail },
+      { href: "/contact", label: "Request a consultation" },
+    ],
+  },
+];
+
 export function Footer() {
   return (
-    <footer className="mt-auto bg-ink text-slate-300">
-      {/* The kiosk's paint tins, one stripe each */}
-      <div className="grid h-2 grid-cols-3" aria-hidden="true">
-        <span className="bg-kiosk" />
-        <span className="bg-sign" />
-        <span className="bg-money" />
-      </div>
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 py-14 sm:py-16 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
+    <footer className="tone-light mt-auto border-t border-line bg-surface">
+      <Container>
+        <div className="grid gap-12 py-section lg:grid-cols-[5fr_7fr] lg:gap-16">
           <div>
-            <p className="font-bold text-white">Write to us</p>
+            <Text size="small">Write to us</Text>
             <a
               href={`mailto:${site.email}`}
-              className="sign shade mt-3 inline-block text-[clamp(2rem,7vw,4rem)] break-all text-sign [--shade:#000] hover:text-white"
+              className="mt-2 inline-block font-heading text-h1 break-all text-fg transition-colors duration-(--duration-fast) hover:text-accent-strong"
             >
               {site.email}
             </a>
           </div>
 
-          <nav aria-label="Footer">
-            <ul className="flex flex-wrap gap-x-6 gap-y-3 lg:justify-end">
-              {nav.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="font-semibold text-white hover:text-sign">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <nav aria-label="Footer" className="grid gap-10 sm:grid-cols-3">
+            {columns.map((col) => (
+              <div key={col.title}>
+                <Heading as="h2" size="h4" className="text-(--fg-muted)">
+                  {col.title}
+                </Heading>
+                <ul className="mt-4 space-y-2.5">
+                  {col.links.map((l) => (
+                    <li key={l.href + l.label}>
+                      <Link
+                        href={l.href}
+                        className="break-words text-fg underline decoration-line decoration-1 underline-offset-4 transition-colors duration-(--duration-fast) hover:decoration-accent"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </nav>
         </div>
+      </Container>
 
-        <div className="flex flex-col gap-5 border-t border-dashed border-white/20 py-6 text-sm sm:flex-row sm:items-center sm:justify-between">
+      <div className="tone-dark bg-night-deep">
+        <Container className="flex flex-col gap-5 py-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-4">
             <Image
               src="/brand/riah-logo-mono-white.svg"
@@ -51,18 +78,21 @@ export function Footer() {
               height={44}
               className="h-7 w-auto"
             />
-            <p className="text-slate-400">© {site.legalName}, Sierra Leone</p>
+            <Text size="small">© {site.legalName}, Sierra Leone</Text>
           </div>
           <ul className="flex gap-5">
             {legal.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="text-slate-400 hover:text-sign">
+                <Link
+                  href={l.href}
+                  className="text-small text-(--fg-muted) transition-colors hover:text-(--fg)"
+                >
                   {l.label}
                 </Link>
               </li>
             ))}
           </ul>
-        </div>
+        </Container>
       </div>
     </footer>
   );

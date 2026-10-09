@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
-import { Atkinson_Hyperlegible_Next, Bowlby_One } from "next/font/google";
+import { Atkinson_Hyperlegible_Next, Bowlby_One, Geist } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ogImage, organizationJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-// Showcard lettering for the signs, a highly legible sans for everything read
+// Geist for headings, a highly legible sans for everything read. Showcard
+// lettering stays only until the inner pages move to the new system.
+const geist = Geist({
+  variable: "--font-geist",
+  subsets: ["latin"],
+});
 const showcard = Bowlby_One({
   variable: "--font-showcard",
   weight: "400",
@@ -49,7 +54,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-GB" className={`${showcard.variable} ${body.variable} antialiased`}>
+    <html lang="en-GB" className={`${geist.variable} ${showcard.variable} ${body.variable} antialiased`}>
       <body className="flex min-h-dvh flex-col">
         <script
           type="application/ld+json"

@@ -1,7 +1,9 @@
 @import "tailwindcss";
+@import "./tokens.css";
 
 /*
-  Painted agent kiosk. Paint fields own whole bands; the brief's palette
+  Legacy painted-kiosk tokens, still used by the inner pages until they move
+  to tokens.css. Painted agent kiosk. Paint fields own whole bands; the brief's palette
   (slate, emerald, tech blue, crisp gray) becomes the paint tins, with sign
   yellow added for lettering and the main action.
 */
@@ -124,3 +126,4 @@
     animation: none;
   }
 }
+
