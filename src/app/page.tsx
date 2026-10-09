@@ -4,7 +4,7 @@ import { Pictogram } from "@/components/pictogram";
 import { Button } from "@/components/ui/button";
 import { Card, CardLink } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
-import { Eyebrow, Heading } from "@/components/ui/heading";
+import { Heading } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
 import { SectionHead } from "@/components/ui/section-head";
 import { Text } from "@/components/ui/text";
@@ -13,15 +13,35 @@ import { licensing, menu, sectors, services } from "@/lib/site";
 const headline = ["Networks.", "Servers.", "SMS.", "Payments."];
 
 const steps = [
-  { name: "Audit", detail: "We map what you run today and find where it fails." },
-  { name: "Design", detail: "Network, servers, integrations and security, planned before anything is bought." },
-  { name: "Test", detail: "Code review, load and acceptance testing in your real conditions." },
-  { name: "Deploy", detail: "A staged go-live, hardened servers and handover documents." },
-  { name: "Support", detail: "Monitoring, licence renewals and someone to call when it breaks." },
+  {
+    name: "Audit",
+    detail: "We map what you run today and find where it fails.",
+  },
+  {
+    name: "Design",
+    detail:
+      "Network, servers, integrations and security, planned before anything is bought.",
+  },
+  {
+    name: "Test",
+    detail: "Code review, load and acceptance testing in your real conditions.",
+  },
+  {
+    name: "Deploy",
+    detail: "A staged go-live, hardened servers and handover documents.",
+  },
+  {
+    name: "Support",
+    detail: "Monitoring, licence renewals and someone to call when it breaks.",
+  },
 ];
 
-const featured = services.filter((s) => s.id === "network" || s.id === "messaging");
-const others = services.filter((s) => s.id !== "network" && s.id !== "messaging");
+const featured = services.filter(
+  (s) => s.id === "network" || s.id === "messaging",
+);
+const others = services.filter(
+  (s) => s.id !== "network" && s.id !== "messaging",
+);
 
 export default function Home() {
   return (
@@ -30,56 +50,89 @@ export default function Home() {
       <section className="tone-dark -mt-header bg-night-deep p-2 lg:p-3">
         <div className="relative isolate flex min-h-[min(88svh,56rem)] flex-col justify-end overflow-hidden rounded-lg bg-night pt-[calc(var(--spacing-header)+3rem)] pb-section lg:pb-section-lg">
           <HeroBackdrop />
-          <Container>
-            <h1 className="font-heading text-display text-fg-inverse">
-              {headline.map((w, i) => (
-                <span key={w} className="rise block" style={{ ["--i" as string]: i }}>
-                  {w}
-                </span>
-              ))}
-            </h1>
-            <Text
-              size="lead"
-              className="rise mt-8 max-w-measure"
-              style={{ ["--i" as string]: 4 }}
-            >
-              We design, install and run IT systems for ministries, health
-              programmes, banks and hotels in Sierra Leone.
-            </Text>
-            <div className="rise mt-10 flex flex-wrap gap-3" style={{ ["--i" as string]: 5 }}>
-              <Button href="/contact" variant="signal" size="lg">
-                Request a consultation
-              </Button>
-              <Button href="/services" variant="outline" size="lg">
-                See all services
-              </Button>
+          <Container className="grid items-end gap-12 lg:grid-cols-[7fr_5fr] lg:gap-12">
+            <div>
+              <h1 className="font-heading text-display text-fg-inverse">
+                {headline.map((w, i) => (
+                  <span
+                    key={w}
+                    className="rise block"
+                    style={{ ["--i" as string]: i }}
+                  >
+                    {w}
+                  </span>
+                ))}
+              </h1>
+              <Text
+                size="lead"
+                className="rise mt-8 max-w-measure"
+                style={{ ["--i" as string]: 4 }}
+              >
+                We design, install and run IT systems for ministries, health
+                programmes, banks and hotels in Sierra Leone.
+              </Text>
+              <div
+                className="rise mt-10 flex flex-wrap gap-3"
+                style={{ ["--i" as string]: 5 }}
+              >
+                <Button href="/contact" variant="signal" size="lg">
+                  Request a consultation
+                </Button>
+                <Button href="/services" variant="outline" size="lg">
+                  See all services
+                </Button>
+              </div>
             </div>
+
+            {/* What we do: the menu board, as a frosted panel over the photo */}
+            <nav
+              aria-labelledby="menu-title"
+              className="rise rounded-md bg-night/70 p-5 ring-1 ring-white/10 backdrop-blur-md sm:p-7"
+              style={{ ["--i" as string]: 6 }}
+            >
+              <Heading as="h2" size="h3" id="menu-title" className="px-2">
+                What we do
+              </Heading>
+              <ul className="mt-3 divide-y divide-(--hairline)">
+                {menu.map((m) => (
+                  <li key={m.label}>
+                    <Link
+                      href={m.href}
+                      className="group flex items-center gap-4 rounded-sm px-2 py-2.5 transition-colors duration-(--duration-fast) hover:bg-white/[0.06]"
+                    >
+                      <Pictogram
+                        name={m.pictogram}
+                        className="size-10 shrink-0"
+                      />
+                      <span className="min-w-0 flex-1">
+                        <span className="block font-semibold text-fg-inverse">
+                          {m.label}
+                        </span>
+                        <span className="block text-small text-fg-inverse-muted">
+                          {m.detail}
+                        </span>
+                      </span>
+                      <svg
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                        className="size-3.5 shrink-0 text-fg-inverse-muted opacity-0 transition-[opacity,translate] duration-(--duration-fast) group-hover:translate-x-0.5 group-hover:opacity-100"
+                      >
+                        <path
+                          d="M5 11 L11 5 M6 5 H11 V10"
+                          stroke="currentColor"
+                          strokeWidth="1.75"
+                          fill="none"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </Container>
         </div>
       </section>
-
-      {/* What we do: the quick index straight under the hero */}
-      <Section tone="alt" size="sm" aria-labelledby="index-title">
-        <Eyebrow id="index-title">What we do</Eyebrow>
-        <ul className="mt-6 grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-4">
-          {menu.map((m) => (
-            <li key={m.label}>
-              <Link
-                href={m.href}
-                className="group flex items-center gap-4 rounded-sm py-3 transition-colors duration-(--duration-fast)"
-              >
-                <Pictogram name={m.pictogram} className="size-10 shrink-0" />
-                <span className="min-w-0">
-                  <span className="block font-semibold text-fg underline decoration-transparent decoration-1 underline-offset-4 transition-colors group-hover:decoration-accent">
-                    {m.label}
-                  </span>
-                  <span className="block text-small text-fg-muted">{m.detail}</span>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Section>
 
       {/* Sectors */}
       <Section aria-labelledby="sectors-title">
@@ -95,15 +148,24 @@ export default function Home() {
               href={`/industries#${s.id}`}
               className="sm:flex-row sm:gap-6"
             >
-              <Pictogram name={s.pictogram} className="size-16 shrink-0 sm:size-20" />
+              <Pictogram
+                name={s.pictogram}
+                className="size-16 shrink-0 sm:size-20"
+              />
               <div className="mt-5 sm:mt-0">
                 <Heading as="h3" size="h3">
                   {s.name}
                 </Heading>
                 <Text className="mt-2">{s.need}</Text>
-                <ul className="mt-5 flex flex-wrap gap-2" aria-label="Services they use">
+                <ul
+                  className="mt-5 flex flex-wrap gap-2"
+                  aria-label="Services they use"
+                >
                   {s.uses.map((u) => (
-                    <li key={u} className="rounded-xs bg-surface-alt px-2.5 py-1 text-caption text-fg">
+                    <li
+                      key={u}
+                      className="rounded-xs bg-surface-alt px-2.5 py-1 text-caption text-fg"
+                    >
                       {u}
                     </li>
                   ))}
@@ -129,26 +191,38 @@ export default function Home() {
             <Card key={s.id} className="shadow-md">
               <div className="flex items-start justify-between gap-6">
                 <div className="min-w-0">
-                  <Text size="small" className="font-semibold text-accent-strong">
+                  <Text
+                    size="small"
+                    className="font-semibold text-accent-strong"
+                  >
                     {s.title}
                   </Text>
                   <Heading as="h3" size="h3" className="mt-2">
                     {s.plain}
                   </Heading>
                 </div>
-                <Pictogram name={s.pictogram} className="size-14 shrink-0 sm:size-20" />
+                <Pictogram
+                  name={s.pictogram}
+                  className="size-14 shrink-0 sm:size-20"
+                />
               </div>
               <ul className="mt-6 divide-y divide-line border-t border-line">
                 {s.offerings.map((o) => (
                   <li key={o.name} className="py-4">
-                    <span className="block font-semibold text-fg">{o.name}</span>
-                    <span className="mt-1 block text-small text-fg-muted">{o.detail}</span>
+                    <span className="block font-semibold text-fg">
+                      {o.name}
+                    </span>
+                    <span className="mt-1 block text-small text-fg-muted">
+                      {o.detail}
+                    </span>
                   </li>
                 ))}
               </ul>
               <div className="mt-auto pt-4">
                 <Button href={`/services#${s.id}`} variant="link">
-                  {s.id === "network" ? "More about networks" : "More about SMS and payments"}
+                  {s.id === "network"
+                    ? "More about networks"
+                    : "More about SMS and payments"}
                 </Button>
               </div>
             </Card>
@@ -166,7 +240,10 @@ export default function Home() {
                 <Heading as="h3" size="h4" className="mt-5">
                   {s.plain}
                 </Heading>
-                <Text size="small" className="mt-1 font-semibold text-accent-strong">
+                <Text
+                  size="small"
+                  className="mt-1 font-semibold text-accent-strong"
+                >
                   {s.title}
                 </Text>
                 <Text size="small" className="mt-3">
@@ -217,14 +294,22 @@ export default function Home() {
           />
           <ul className="divide-y divide-line border-y border-line">
             {licensing.map((l) => (
-              <li key={l.product} className="grid grid-cols-[auto_1fr] items-start gap-x-5 py-6">
+              <li
+                key={l.product}
+                className="grid grid-cols-[auto_1fr] items-start gap-x-5 py-6"
+              >
                 <Pictogram name={l.pictogram} className="size-12" />
                 <div>
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                     <Heading as="h3" size="h4">
                       {l.short}
                     </Heading>
-                    <Text as="span" size="caption" tone="subtle" className="uppercase tracking-wide">
+                    <Text
+                      as="span"
+                      size="caption"
+                      tone="subtle"
+                      className="uppercase tracking-wide"
+                    >
                       Supplied and installed
                     </Text>
                   </div>
