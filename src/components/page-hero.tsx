@@ -2,16 +2,13 @@ import type { ReactNode } from "react";
 import { HeroBackdrop } from "./hero-backdrop";
 import { Pictogram, type PictogramName } from "./pictogram";
 import { Container } from "./ui/container";
-import { Eyebrow } from "./ui/heading";
 
 /** The inset night card that opens every inner page. */
 export function PageHero({
-  eyebrow,
   title,
   pictogram,
   children,
 }: {
-  eyebrow?: string;
   title: string;
   pictogram?: PictogramName;
   children?: ReactNode;
@@ -22,7 +19,6 @@ export function PageHero({
         <HeroBackdrop quiet />
         <Container className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
           <div>
-            {eyebrow && <Eyebrow className="rise mb-5">{eyebrow}</Eyebrow>}
             <h1 className="rise max-w-4xl font-heading text-h1 text-fg-inverse" style={{ ["--i" as string]: 1 }}>
               {title}
             </h1>

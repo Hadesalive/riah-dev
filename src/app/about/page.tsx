@@ -4,7 +4,6 @@ import { ProjectSteps, SectorList, ServiceCards } from "@/components/blocks";
 import { ClosingCall } from "@/components/closing-call";
 import { PageHero } from "@/components/page-hero";
 import { Pictogram, type PictogramName } from "@/components/pictogram";
-import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
 import { SectionHead } from "@/components/ui/section-head";
@@ -45,7 +44,6 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About"
         title="Engineers, based in Sierra Leone"
         pictogram="globe"
       >
@@ -62,16 +60,14 @@ export default function AboutPage() {
           title="How we work"
           lead="We design for limited bandwidth and unreliable power, and we hand over systems your own team can run after we leave."
         />
-        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <ul className="mt-12 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-4">
           {capabilities.map((c) => (
-            <li key={c.name}>
-              <Card className="h-full">
-                <Pictogram name={c.pictogram} className="size-14" />
-                <Heading as="h3" size="h4" className="mt-5">
-                  {c.name}
-                </Heading>
-                <Text className="mt-2">{c.body}</Text>
-              </Card>
+            <li key={c.name} className="border-t border-line py-8">
+              <Pictogram name={c.pictogram} className="size-14" />
+              <Heading as="h3" size="h4" className="mt-5">
+                {c.name}
+              </Heading>
+              <Text className="mt-2">{c.body}</Text>
             </li>
           ))}
         </ul>

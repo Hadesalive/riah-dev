@@ -5,7 +5,6 @@ import { ClosingCall } from "@/components/closing-call";
 import { PageHero } from "@/components/page-hero";
 import { Pictogram, type PictogramName } from "@/components/pictogram";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
 import { SectionHead } from "@/components/ui/section-head";
@@ -40,7 +39,6 @@ export default function SponsorshipsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Global exchange"
         title="Global exchange & sponsorships"
         pictogram="globe"
       >
@@ -57,15 +55,24 @@ export default function SponsorshipsPage() {
           title="How sponsors help"
           lead="Development partners, technology vendors and grant-making institutions help our team attend these events."
         />
-        <Card className="mt-12 gap-3 shadow-md lg:grid lg:grid-cols-2 lg:items-baseline lg:gap-12">
-          <Heading as="h2" size="h3">
-            Our main funding need
-          </Heading>
-          <Text size="lead">
-            Travel, accommodation and registration. Covering these is usually
-            what decides whether our team can attend.
-          </Text>
-        </Card>
+        <div className="tone-dark relative isolate mt-12 overflow-hidden rounded-lg bg-night">
+          <div
+            aria-hidden="true"
+            className="absolute -top-1/2 -right-1/4 -z-10 size-[48rem] rounded-full bg-accent/20 blur-3xl"
+          />
+          <div className="max-w-2xl px-6 py-section-sm sm:px-10 lg:px-16 lg:py-section">
+            <Heading as="h3" size="h4" className="text-(--fg-muted)">
+              Our main funding need
+            </Heading>
+            <p className="mt-4 font-heading text-h1 text-(--fg)">
+              Travel, accommodation and registration.
+            </p>
+            <Text size="lead" className="mt-6 max-w-md">
+              Covering these is usually what decides whether our team can
+              attend.
+            </Text>
+          </div>
+        </div>
       </Section>
 
       <Section tone="alt" aria-labelledby="partners-title">
@@ -75,16 +82,17 @@ export default function SponsorshipsPage() {
             Discuss a sponsorship
           </Button>
         </div>
-        <ul className="mt-12 grid gap-4 md:grid-cols-3 lg:gap-6">
-          {value.map((v) => (
-            <li key={v.name}>
-              <Card className="h-full">
-                <Pictogram name={v.pictogram} className="size-14" />
-                <Heading as="h3" size="h4" className="mt-5">
-                  {v.name}
-                </Heading>
-                <Text className="mt-2">{v.body}</Text>
-              </Card>
+        <ul className="mt-12 grid border-y border-line md:grid-cols-3 md:divide-x md:divide-line">
+          {value.map((v, i) => (
+            <li
+              key={v.name}
+              className={`py-8 md:px-8 md:first:pl-0 md:last:pr-0 ${i ? "border-t border-line md:border-t-0" : ""}`}
+            >
+              <Pictogram name={v.pictogram} className="size-14" />
+              <Heading as="h3" size="h3" className="mt-5">
+                {v.name}
+              </Heading>
+              <Text className="mt-3">{v.body}</Text>
             </li>
           ))}
         </ul>

@@ -14,7 +14,7 @@ export function ProsePage({
 }) {
   return (
     <>
-      <PageHero eyebrow="Legal" title={title}>
+      <PageHero title={title}>
         <p>Last updated {updated}</p>
       </PageHero>
       <Section width="narrow">

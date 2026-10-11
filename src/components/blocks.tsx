@@ -2,7 +2,6 @@ import Link from "next/link";
 import { licensing, sectors, services, steps } from "@/lib/site";
 import { Pictogram } from "./pictogram";
 import { Button } from "./ui/button";
-import { CardLink } from "./ui/card";
 import { Heading } from "./ui/heading";
 import { Section } from "./ui/section";
 import { SectionHead } from "./ui/section-head";
@@ -27,7 +26,6 @@ export function ProjectSteps() {
         <SectionHead
           id="steps-title"
           align="split"
-          eyebrow="How we work"
           title="How a project runs"
           action={
             <Button href="/contact" variant="solid">
@@ -81,7 +79,6 @@ export function SectorList({ tone = "surface" }: { tone?: "surface" | "alt" }) {
         <div className="lg:sticky lg:top-28 lg:self-start">
           <SectionHead
             id="sectors-title"
-            eyebrow="Industries"
             title="Who we work for"
             lead="Most of our clients work with unreliable power and patchy connections, so that is what we design for."
             action={
@@ -130,7 +127,11 @@ export function SectorList({ tone = "surface" }: { tone?: "surface" | "alt" }) {
   );
 }
 
-/** Every service as a compact link card; `except` drops ones the page already covers. */
+/**
+ * Every service as one ruled index: name on the left, what it covers on the
+ * right, a row each. Any number of rows sits cleanly, so `except` can drop the
+ * ones a page already covers without leaving a stray card.
+ */
 export function ServiceCards({
   except = [],
   tone = "alt",
@@ -144,31 +145,32 @@ export function ServiceCards({
       <SectionHead
         id="service-cards-title"
         align="split"
-        eyebrow="Services"
         title="From the cable to the code"
         lead="We handle the network, the servers, the integrations and the licences ourselves, so you have one team to call when something stops working."
         action={<Button href="/services">See all services</Button>}
       />
-      <ul
-        className={`mt-12 grid gap-4 sm:grid-cols-2 lg:gap-6 ${list.length % 3 ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}
-      >
+      <ul className="mt-12 divide-y divide-line border-y border-line">
         {list.map((s) => (
           <li key={s.id}>
-            <CardLink
+            <Link
               href={s.id === "licensing" ? "/licensing" : `/services#${s.id}`}
-              className="h-full p-6 sm:p-6"
+              className="group grid grid-cols-[auto_1fr] items-start gap-x-5 gap-y-3 py-7 sm:gap-x-8 lg:grid-cols-[auto_5fr_6fr] lg:items-center lg:gap-x-12"
             >
-              <Pictogram name={s.pictogram} className="size-12" />
-              <Heading as="h3" size="h4" className="mt-5">
-                {s.plain}
-              </Heading>
-              <Text size="small" className="mt-1 font-semibold text-accent-strong">
-                {s.title}
-              </Text>
-              <Text size="small" className="mt-3">
-                {s.summary}
-              </Text>
-            </CardLink>
+              <Pictogram name={s.pictogram} className="size-12 lg:size-14" />
+              <div>
+                <Heading
+                  as="h3"
+                  size="h3"
+                  className="underline decoration-transparent decoration-1 underline-offset-[6px] transition-colors duration-(--duration-fast) group-hover:decoration-accent"
+                >
+                  {s.plain}
+                </Heading>
+                <Text size="small" className="mt-1 font-semibold text-accent-strong">
+                  {s.title}
+                </Text>
+              </div>
+              <Text className="col-start-2 lg:col-start-3">{s.summary}</Text>
+            </Link>
           </li>
         ))}
       </ul>
@@ -183,7 +185,6 @@ export function LicensingColumns({ tone = "surface" }: { tone?: "surface" | "alt
       <SectionHead
         id="licensing-title"
         align="split"
-        eyebrow="Licensing"
         title="We also supply the software"
         lead="We install and renew every licence we sell."
         action={<Button href="/licensing">See licensing</Button>}

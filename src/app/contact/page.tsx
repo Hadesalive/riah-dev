@@ -25,7 +25,6 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Contact"
         title="Request a technical consultation"
         pictogram="sms"
       >

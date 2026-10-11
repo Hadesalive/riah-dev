@@ -119,7 +119,6 @@ export default function Home() {
         <SectionHead
           id="services-title"
           align="split"
-          eyebrow="Services"
           title="From the cable to the code"
           lead="We handle the network, the servers, the integrations and the licences ourselves, so you have one team to call when something stops working."
         />

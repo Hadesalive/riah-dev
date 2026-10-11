@@ -99,7 +99,7 @@ const sectors: Sector[] = [
 export default function IndustriesPage() {
   return (
     <>
-      <PageHero eyebrow="Industries" title="Who we work for" pictogram="ministry">
+      <PageHero title="Who we work for" pictogram="ministry">
         <p>
           Health programmes, banks and fintechs, ministries and hotels. Find
           your sector to see what we would build for you.

@@ -4,8 +4,7 @@ import { SectorList, ServiceCards } from "@/components/blocks";
 import { ClosingCall } from "@/components/closing-call";
 import { PageHero } from "@/components/page-hero";
 import { Pictogram } from "@/components/pictogram";
-import { Card } from "@/components/ui/card";
-import { Eyebrow, Heading } from "@/components/ui/heading";
+import { Heading } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
 import { Text } from "@/components/ui/text";
 import { licensing } from "@/lib/site";
@@ -20,28 +19,41 @@ export const metadata: Metadata = pageMetadata({
 export default function LicensingPage() {
   return (
     <>
-      <PageHero eyebrow="Licensing" title="Software & licences" pictogram="key">
+      <PageHero title="Software & licences" pictogram="key">
         <p>
           We supply the licences and set up the products, so the people who sell
           them to you are the people who install and renew them.
         </p>
       </PageHero>
 
-      <Section tone="alt">
-        <div className="grid gap-4 lg:grid-cols-3 lg:gap-6">
+      <Section tone="alt" aria-label="Products we supply">
+        <ul className="tone-light divide-y divide-line overflow-hidden rounded-md bg-surface shadow-md ring-1 ring-line">
           {licensing.map((row) => (
-            <Card key={row.product} as="article" className="shadow-md">
-              <Pictogram name={row.pictogram} className="size-16" />
-              <Heading as="h2" size="h3" className="mt-6">
-                {row.product}
-              </Heading>
-              <Eyebrow className="mt-6">What we do</Eyebrow>
-              <Text className="mt-2">{row.services}</Text>
-              <Eyebrow className="mt-6">Suited to</Eyebrow>
-              <Text className="mt-2">{row.fit}</Text>
-            </Card>
+            <li
+              key={row.product}
+              className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[4fr_5fr_5fr] lg:gap-12 lg:p-10"
+            >
+              <div className="flex items-center gap-5 lg:block">
+                <Pictogram name={row.pictogram} className="size-14 shrink-0 lg:size-16" />
+                <Heading as="h2" size="h3" className="lg:mt-5">
+                  {row.product}
+                </Heading>
+              </div>
+              <div>
+                <Text size="small" className="font-semibold text-fg">
+                  What we do
+                </Text>
+                <Text className="mt-2">{row.services}</Text>
+              </div>
+              <div>
+                <Text size="small" className="font-semibold text-fg">
+                  Suited to
+                </Text>
+                <Text className="mt-2">{row.fit}</Text>
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
         <Text size="lead" className="mt-10">
           Ask for a quote that combines licences with installation and support.
         </Text>

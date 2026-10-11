@@ -1,10 +1,9 @@
 import type { ReactNode } from "react";
-import { Eyebrow, Heading } from "./heading";
+import { Heading } from "./heading";
 import { Text } from "./text";
 
-/** Eyebrow, title, lead, one action: the head every section opens with. */
+/** Title, lead, one action: the head every section opens with. */
 export function SectionHead({
-  eyebrow,
   title,
   lead,
   action,
@@ -12,7 +11,6 @@ export function SectionHead({
   id,
   className = "",
 }: {
-  eyebrow?: string;
   title: ReactNode;
   lead?: ReactNode;
   action?: ReactNode;
@@ -23,10 +21,7 @@ export function SectionHead({
   if (align === "split") {
     return (
       <div className={`grid gap-4 lg:grid-cols-2 lg:items-end lg:gap-12 ${className}`}>
-        <div>
-          {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
-          <Heading id={id}>{title}</Heading>
-        </div>
+        <Heading id={id}>{title}</Heading>
         {/* With no lead, the action sits flush right across from the title */}
         <div className={lead ? "" : "lg:justify-self-end"}>
           {lead && <Text size="lead">{lead}</Text>}
@@ -38,7 +33,6 @@ export function SectionHead({
   const centred = align === "center";
   return (
     <div className={`${centred ? "mx-auto text-center" : ""} max-w-narrow ${className}`}>
-      {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
       <Heading id={id}>{title}</Heading>
       {lead && (
         <Text size="lead" className={`mt-4 max-w-measure ${centred ? "mx-auto" : ""}`}>

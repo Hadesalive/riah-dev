@@ -23,7 +23,7 @@ const engineering = services.filter((s) => s.offerings.length > 0);
 export default function ServicesPage() {
   return (
     <>
-      <PageHero eyebrow="Services" title="Services" pictogram="servers">
+      <PageHero title="Services" pictogram="servers">
         <p>
           Five kinds of engineering work, done by one team. Most projects use
           two or three of them together.
