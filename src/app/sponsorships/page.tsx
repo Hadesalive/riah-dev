@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { pageMetadata } from "@/lib/seo";
 import { SectorList } from "@/components/blocks";
 import { ClosingCall } from "@/components/closing-call";
@@ -9,6 +10,7 @@ import { Heading } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
 import { SectionHead } from "@/components/ui/section-head";
 import { Text } from "@/components/ui/text";
+import departureLounge from "../../../public/photos/departure-lounge.jpg";
 
 export const metadata: Metadata = pageMetadata({
   title: "Global exchange & sponsorships",
@@ -56,10 +58,18 @@ export default function SponsorshipsPage() {
           lead="Development partners, technology vendors and grant-making institutions help our team attend these events."
         />
         <div className="tone-dark relative isolate mt-12 overflow-hidden rounded-lg bg-night">
-          <div
-            aria-hidden="true"
-            className="absolute -top-1/2 -right-1/4 -z-10 size-[48rem] rounded-full bg-accent/20 blur-3xl"
-          />
+          {/* A departure lounge at dusk (AI-generated placeholder) */}
+          <div aria-hidden="true" className="absolute inset-0 -z-10">
+            <Image
+              src={departureLounge}
+              alt=""
+              fill
+              sizes="(min-width: 1280px) 80rem, 100vw"
+              placeholder="blur"
+              className="object-cover object-right"
+            />
+            <div className="absolute inset-0 bg-linear-to-r from-night/95 via-night/75 to-night/20" />
+          </div>
           <div className="max-w-2xl px-6 py-section-sm sm:px-10 lg:px-16 lg:py-section">
             <Heading as="h3" size="h4" className="text-(--fg-muted)">
               Our main funding need

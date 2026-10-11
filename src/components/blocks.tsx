@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import coastRoad from "../../public/photos/coast-road.jpg";
 import { licensing, sectors, services, steps } from "@/lib/site";
 import { Pictogram } from "./pictogram";
 import { Button } from "./ui/button";
@@ -18,11 +20,18 @@ export function ProjectSteps() {
   return (
     <Section aria-labelledby="steps-title">
       <div className="tone-dark relative isolate overflow-hidden rounded-lg bg-night px-6 py-section-sm sm:px-10 lg:px-16 lg:py-section">
-        {/* A soft light from the top right gives the panel depth */}
-        <div
-          aria-hidden="true"
-          className="absolute -top-1/2 -right-1/4 -z-10 size-[48rem] rounded-full bg-accent/20 blur-3xl"
-        />
+        {/* The coast road at dusk, dimmed so the steps stay readable (AI-generated placeholder) */}
+        <div aria-hidden="true" className="absolute inset-0 -z-10">
+          <Image
+            src={coastRoad}
+            alt=""
+            fill
+            sizes="(min-width: 1280px) 80rem, 100vw"
+            placeholder="blur"
+            className="object-cover object-right"
+          />
+          <div className="absolute inset-0 bg-linear-to-r from-night/95 via-night/80 to-night/55" />
+        </div>
         <SectionHead
           id="steps-title"
           align="split"

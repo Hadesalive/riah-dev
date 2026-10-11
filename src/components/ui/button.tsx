@@ -16,14 +16,12 @@ const variants = {
 export function Button({
   variant = "solid",
   size = "md",
-  arrow = variant !== "signal",
   className = "",
   children,
   ...props
 }: ComponentProps<typeof Link> & {
   variant?: keyof typeof variants;
   size?: "md" | "lg";
-  arrow?: boolean;
 }) {
   const box =
     variant === "link"
@@ -32,18 +30,9 @@ export function Button({
   return (
     <Link
       {...props}
-      className={`group/btn inline-flex items-center justify-center gap-2 font-semibold transition-colors duration-(--duration-fast) ease-(--ease-out) ${box} ${variants[variant]} ${className}`}
+      className={`inline-flex items-center justify-center font-semibold transition-colors duration-(--duration-fast) ease-(--ease-out) ${box} ${variants[variant]} ${className}`}
     >
       {children}
-      {arrow && (
-        <svg
-          viewBox="0 0 16 16"
-          aria-hidden="true"
-          className="size-3.5 transition-transform duration-(--duration-fast) group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
-        >
-          <path d="M5 11 L11 5 M6 5 H11 V10" stroke="currentColor" strokeWidth="1.75" fill="none" strokeLinecap="round" />
-        </svg>
-      )}
     </Link>
   );
 }
